@@ -1,4 +1,5 @@
 import { CanvasRenderer } from "../../rendering/CanvasRenderer";
+import { World } from "./World";
 
 export class GameEngine {
   private readonly timestep = 1 / 60;
@@ -9,8 +10,13 @@ export class GameEngine {
 
   private renderer: CanvasRenderer;
 
+  private world = new World();
+
   constructor(canvas: HTMLCanvasElement) {
-    this.renderer = new CanvasRenderer(canvas);
+    this.renderer = new CanvasRenderer(
+      canvas,
+      this.world
+    );
   }
 
   start() {
@@ -38,7 +44,9 @@ export class GameEngine {
     requestAnimationFrame(this.loop);
   };
 
-  private update(deltaTime: number) {}
+  private update(deltaTime: number) {
+    this.world.update(deltaTime);
+  }
 
   private render() {
     this.renderer.render();

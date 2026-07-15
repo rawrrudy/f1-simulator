@@ -7,7 +7,7 @@ export class CanvasRenderer {
 
   private camera = new Camera();
 
-  private world = new World();
+  private world: World;
 
   private drawWorld() {
     this.ctx.strokeStyle = "#2d323c";
@@ -34,26 +34,46 @@ export class CanvasRenderer {
     }
 
     this.ctx.stroke();
+
+    for (const car of this.world.cars) {
+      this.ctx.fillStyle = "#ff3333";
+
+      this.ctx.beginPath();
+
+      this.ctx.arc(
+        car.x,
+        car.y,
+        14,
+        0,
+        Math.PI * 2
+      );
+
+      this.ctx.fill();
+      
+    }
   }
 
-  constructor(canvas: HTMLCanvasElement) {
-    this.canvas = canvas;
+  constructor(
+      canvas: HTMLCanvasElement,
+      world: World
+  ) {
+      this.canvas = canvas;
+      this.world = world;
 
-    const context = canvas.getContext("2d");
+      const context = canvas.getContext("2d");
 
-    if (!context) {
-      throw new Error("Failed to create 2D rendering context.");
-    }
+      if (!context) {
+          throw new Error("Failed to create 2D rendering context.");
+      }
 
-    this.ctx = context;
+      this.ctx = context;
 
-    this.resize();
+      this.resize();
+ 
+      this.camera.x = this.world.width / 2;
+      this.camera.y = this.world.height / 2;
 
-    this.camera.x = this.world.width / 2;
-
-    this.camera.y = this.world.height / 2;
-
-    window.addEventListener("resize", this.resize);
+      window.addEventListener("resize", this.resize);
   }
 
   private resize = () => {
