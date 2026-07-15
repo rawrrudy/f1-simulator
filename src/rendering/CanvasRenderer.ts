@@ -1,6 +1,40 @@
+import { Camera } from "./Camera";
+import { World } from "../engine/core/World";
+
 export class CanvasRenderer {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
+
+  private camera = new Camera();
+
+  private world = new World();
+
+  private drawWorld() {
+    this.ctx.strokeStyle = "#2d323c";
+    this.ctx.lineWidth = 5;
+
+    this.ctx.strokeRect(
+      0,
+      0,
+      this.world.width,
+      this.world.height
+    );
+
+    const points = this.world.track.points;
+
+    this.ctx.strokeStyle = "#ffffff";
+    this.ctx.lineWidth = 18;
+
+    this.ctx.beginPath();
+
+    this.ctx.moveTo(points[0].x, points[0].y);
+
+    for (let i = 1; i < points.length; i++) {
+      this.ctx.lineTo(points[i].x, points[i].y)
+    }
+
+    this.ctx.stroke();
+  }
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -15,6 +49,10 @@ export class CanvasRenderer {
 
     this.resize();
 
+    this.camera.x = this.world.width / 2;
+
+    this.camera.y = this.world.height / 2;
+
     window.addEventListener("resize", this.resize);
   }
 
@@ -27,16 +65,10 @@ export class CanvasRenderer {
     this.ctx.fillStyle = "#0B0D12";
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-    this.ctx.fillStyle = "#ffffff";
+    this.camera.apply(this.ctx);
 
-    this.ctx.font = "bold 42px Inter";
+    this.drawWorld();
 
-    this.ctx.textAlign = "center";
-
-    this.ctx.fillText(
-      "F1 Strategy Simulator",
-      this.canvas.width / 2,
-      this.canvas.height / 2
-    );
+    this.camera.reset(this.ctx);
   }
 }
