@@ -1,14 +1,7 @@
-import "./App.css";
-import { useGamingEngine } from "./hooks/useGameEngine";
+import { GameCanvas } from "./ui/GameCanvas";
 
 function App() {
-  useGamingEngine();
-
-  return (
-    <div className="app">
-      <h1>F1 Strategy Simulator</h1>
-    </div>
-  );
+  return <GameCanvas />
 }
 
 export default App;

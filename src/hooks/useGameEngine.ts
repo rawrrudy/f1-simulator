@@ -1,9 +1,14 @@
 import { useEffect } from "react";
 import { GameEngine } from "../engine/core/GameEngine";
 
-export function useGamingEngine() {
+export function useGameEngine(
+  canvasRef: React.RefObject<HTMLCanvasElement | null>
+) {
   useEffect(() => {
-    const engine = new GameEngine();
+    if (!canvasRef.current) return;
+
+    const engine = new GameEngine(canvasRef.current);
+
     engine.start();
-  }, []);
+  }, [canvasRef]);
 }

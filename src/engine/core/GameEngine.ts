@@ -1,9 +1,17 @@
+import { CanvasRenderer } from "../../rendering/CanvasRenderer";
+
 export class GameEngine {
   private readonly timestep = 1 / 60;
 
   private accumulator = 0;
 
   private lastTime = 0;
+
+  private renderer: CanvasRenderer;
+
+  constructor(canvas: HTMLCanvasElement) {
+    this.renderer = new CanvasRenderer(canvas);
+  }
 
   start() {
     requestAnimationFrame(this.loop);
@@ -32,5 +40,7 @@ export class GameEngine {
 
   private update(deltaTime: number) {}
 
-  private render() {}
+  private render() {
+    this.renderer.render();
+  }
 }
