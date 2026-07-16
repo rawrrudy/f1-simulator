@@ -1,9 +1,9 @@
-import type { TrackPoint } from "./TrackPoint";
+import type { Vector2 } from "../../utils/Vector2";
 
 export class Track {
-  public readonly points: TrackPoint[];
+  public readonly points: Vector2[];
 
-  constructor(points: TrackPoint[]) {
+  constructor(points: Vector2[]) {
     this.points = points;
   }
 }

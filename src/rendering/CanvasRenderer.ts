@@ -36,20 +36,21 @@ export class CanvasRenderer {
     this.ctx.stroke();
 
     for (const car of this.world.cars) {
+      const position = this.world.track.getPosition(car.distance);
+
       this.ctx.fillStyle = "#ff3333";
 
       this.ctx.beginPath();
 
       this.ctx.arc(
-        car.x,
-        car.y,
+        position.x,
+        position.y,
         14,
         0,
         Math.PI * 2
       );
 
       this.ctx.fill();
-      
     }
   }
 
