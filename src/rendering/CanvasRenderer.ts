@@ -86,6 +86,16 @@ export class CanvasRenderer {
     this.ctx.fillStyle = "#0B0D12";
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
+    const leader = this.world.cars[0];
+
+    const position =
+        this.world.track.getPosition(leader.distance);
+
+    this.camera.follow(
+      position.x,
+      position.y
+    );
+
     this.camera.apply(this.ctx);
 
     this.drawWorld();
