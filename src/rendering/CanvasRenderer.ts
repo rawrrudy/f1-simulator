@@ -1,5 +1,7 @@
 import { Camera } from "./Camera";
 import { World } from "../engine/core/World";
+import carSprite from "../assets/images/orange.png";
+import { Sprite } from "./Sprite";
 
 export class CanvasRenderer {
   private canvas: HTMLCanvasElement;
@@ -8,6 +10,8 @@ export class CanvasRenderer {
   private camera = new Camera();
 
   private world: World;
+
+  private readonly car = new Sprite(carSprite)
 
   private drawWorld() {
     this.ctx.strokeStyle = "#2d323c";
