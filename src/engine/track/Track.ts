@@ -8,21 +8,53 @@ export class Track {
   }
 
   getPosition(distance: number): Vector2 {
+
+      const trackLength = this.points.length * 100;
+
+      distance = 
+          ((distance % trackLength) + trackLength) %
+          trackLength;
+
+      const segmentLength = 100;
+
+      const segment = distance / segmentLength;
+
+      const current = Math.floor(segment);
+
+      const next = (current + 1) % this.points.length;
+
+      const t = segment - current;
+
+      const a = this.points[current];
+      const b = this.points[next];
+
+      return {
+          x: a.x + (b.x - a.x) * t,
+          y: a.y + (b.y - a.y) * t
+      };
+  }
+
+  getDirection(distance: number): number {
+    const trackLength = this.points.length * 100;
+
+    distance =
+        ((distance % trackLength) + trackLength) %
+        trackLength;
+
     const segmentLength = 100;
 
     const segment = distance / segmentLength;
 
-    const current = Math.floor(segment) % this.points.length;
-    const next = (current + 1) % this.points.length;
+    const current = Math.floor(segment);
 
-    const t = segment - Math.floor(segment);
+    const next = (current + 1) % this.points.length;
 
     const a = this.points[current];
     const b = this.points[next];
 
-    return {
-      x: a.x + (b.x - a.x) * t,
-      y: a.y + (b.y - a.y) * t
-    };
+    return Math.atan2(
+        b.y - a.y,
+        b.x - a.x
+    );
   }
 }

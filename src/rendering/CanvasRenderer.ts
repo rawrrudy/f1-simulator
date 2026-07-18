@@ -1,109 +1,97 @@
 import { Camera } from "./Camera";
 import { World } from "../engine/core/World";
-import carSprite from "../assets/images/orange.png";
-import { Sprite } from "./Sprite";
+import { TrackPass } from "./passes/TrackPass";
+import { CarPass } from "./passes/CarPass";
 
 export class CanvasRenderer {
-  private canvas: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D;
+    private canvas: HTMLCanvasElement;
+    private ctx: CanvasRenderingContext2D;
 
-  private camera = new Camera();
+    private readonly camera = new Camera();
+    private readonly world: World;
 
-  private world: World;
+    private readonly trackPass = new TrackPass();
+    private readonly carPass = new CarPass();
 
-  private readonly car = new Sprite(carSprite)
+    constructor(
+        canvas: HTMLCanvasElement,
+        world: World
+    ) {
+        this.canvas = canvas;
+        this.world = world;
 
-  private drawWorld() {
-    this.ctx.strokeStyle = "#2d323c";
-    this.ctx.lineWidth = 5;
+        const context = canvas.getContext("2d");
 
-    this.ctx.strokeRect(
-      0,
-      0,
-      this.world.width,
-      this.world.height
-    );
+        if (!context) {
+            throw new Error("Failed to create 2D rendering context.");
+        }
 
-    const points = this.world.track.points;
+        this.ctx = context;
 
-    this.ctx.strokeStyle = "#ffffff";
-    this.ctx.lineWidth = 18;
+        this.resize();
 
-    this.ctx.beginPath();
+        this.camera.x = this.world.width / 2;
+        this.camera.y = this.world.height / 2;
 
-    this.ctx.moveTo(points[0].x, points[0].y);
-
-    for (let i = 1; i < points.length; i++) {
-      this.ctx.lineTo(points[i].x, points[i].y)
+        window.addEventListener("resize", this.resize);
     }
 
-    this.ctx.stroke();
+    private resize = () => {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    };
 
-    for (const car of this.world.cars) {
-      const position = this.world.track.getPosition(car.distance);
+    private drawWorld() {
+        // World boundary (temporary, useful while developing)
+        this.ctx.strokeStyle = "#2d323c";
+        this.ctx.lineWidth = 5;
 
-      this.ctx.fillStyle = "#ff3333";
+        this.ctx.strokeRect(
+            0,
+            0,
+            this.world.width,
+            this.world.height
+        );
 
-      this.ctx.beginPath();
+        // Render track
+        this.trackPass.render(
+            this.ctx,
+            this.world.track
+        );
 
-      this.ctx.arc(
-        position.x,
-        position.y,
-        14,
-        0,
-        Math.PI * 2
-      );
-
-      this.ctx.fill();
+        // Render cars
+        this.carPass.render(
+            this.ctx,
+            this.world
+        );
     }
-  }
 
-  constructor(
-      canvas: HTMLCanvasElement,
-      world: World
-  ) {
-      this.canvas = canvas;
-      this.world = world;
+    render() {
+        // Clear screen
+        this.ctx.fillStyle = "#0B0D12";
+        this.ctx.fillRect(
+            0,
+            0,
+            this.canvas.width,
+            this.canvas.height
+        );
 
-      const context = canvas.getContext("2d");
+        // Camera follows the leading car
+        const leader = this.world.cars[0];
 
-      if (!context) {
-          throw new Error("Failed to create 2D rendering context.");
-      }
+        const position = this.world.track.getPosition(
+            leader.distance
+        );
 
-      this.ctx = context;
+        this.camera.follow(
+            position.x,
+            position.y
+        );
 
-      this.resize();
- 
-      this.camera.x = this.world.width / 2;
-      this.camera.y = this.world.height / 2;
+        this.camera.apply(this.ctx);
 
-      window.addEventListener("resize", this.resize);
-  }
+        this.drawWorld();
 
-  private resize = () => {
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
-  };
-
-  render() {
-    this.ctx.fillStyle = "#0B0D12";
-    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-    const leader = this.world.cars[0];
-
-    const position =
-        this.world.track.getPosition(leader.distance);
-
-    this.camera.follow(
-      position.x,
-      position.y
-    );
-
-    this.camera.apply(this.ctx);
-
-    this.drawWorld();
-
-    this.camera.reset(this.ctx);
-  }
+        this.camera.reset(this.ctx);
+    }
 }
