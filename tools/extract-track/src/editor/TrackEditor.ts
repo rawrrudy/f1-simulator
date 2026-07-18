@@ -1,15 +1,58 @@
 import { Centerline } from "./Centerline";
+import { Renderer } from "./Renderer";
 
 export class TrackEditor {
     private readonly svg: SVGSVGElement;
     private readonly centerline = new Centerline();
+    private readonly renderer: Renderer;
+    private draggedPoint = -1;
+    private hoveredPoint = -1;
 
     constructor(svg: SVGSVGElement) {
         this.svg = svg;
 
-        this.svg.addEventListener("click", this.onClick.bind(this));
+        this.svg.addEventListener("mousedown", this.onMouseDown.bind(this));
+        window.addEventListener("mousemove", this.onMouseMove.bind(this));
+        window.addEventListener("mouseup", this.onMouseUp.bind(this));
+
+        this.renderer = new Renderer(this.svg)
 
         this.render();
+    }
+
+    private onMouseDown(event: MouseEvent): void {
+        const point = this.getMousePosition(event);
+
+        const index = this.findPoint(point.x, point.y);
+
+        if (index >= 0) {
+            this.draggedPoint = index;
+            return;
+        }
+
+        this.centerline.addPoint(point.x, point.y);
+
+        this.render();
+    }
+
+    private onMouseMove(event: MouseEvent): void {
+        const point = this.getMousePosition(event);
+
+        this.hoveredPoint = this.findPoint(point.x, point.y);
+
+        if (this.draggedPoint >= 0) {
+            this.centerline.movePoint(
+                this.draggedPoint,
+                point.x,
+                point.y
+            );
+        }
+
+        this.render();
+    }
+
+    private onMouseUp(): void {
+        this.draggedPoint = -1;
     }
 
     private onClick(event: MouseEvent): void {
@@ -33,48 +76,28 @@ export class TrackEditor {
         return transformed;
     }
 
-    private render(): void {
-        // Remove prev. editor graphics
-        this.svg.querySelectorAll(".editor-point, .editor-line").forEach((e) => e.remove());
-
+    private findPoint(x: number, y: number): number {
         const points = this.centerline.getPoints();
 
-        // Draw connecting lines
-        for (let i = 0; i < points.length - 1; i++) {
-            const line = document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "line"
-            );
+        const radius = 8;
 
-            line.setAttribute("x1", points[i].x.toString());
-            line.setAttribute("y1", points[i].y.toString());
-            line.setAttribute("x2", points[i + 1].x.toString());
-            line.setAttribute("y2", points[i + 1].y.toString());
+        for (let i = 0; i < points.length; i++) {
+            const dx = points[i].x - x;
+            const dy = points[i].y - y;
 
-            line.setAttribute("stroke", "#00ff88");
-            line.setAttribute("stroke-width", "2");
-
-            line.classList.add("editor-line");
-
-            this.svg.appendChild(line);
+            if (dx * dx + dy * dy <= radius * radius) {
+                return i;
+            }
         }
 
-        // Draw points
-        for (const point of points) {
-            const circle = document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "circle"
-            );
+        return -1;
+    }
 
-            circle.setAttribute("cx", point.x.toString());
-            circle.setAttribute("cy", point.y.toString());
-            circle.setAttribute("r", "4");
-
-            circle.setAttribute("fill", "#00ff88");
-
-            circle.classList.add("editor-point");
-
-            this.svg.appendChild(circle);
-        }
+    private render(): void {
+        this.renderer.render(
+            this.centerline.getPoints(),
+            this.hoveredPoint,
+            this.draggedPoint
+        );
     }
 }

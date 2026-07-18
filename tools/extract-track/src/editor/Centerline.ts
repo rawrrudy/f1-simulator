@@ -9,6 +9,11 @@ export class Centerline {
 
     public getPoints(): readonly ControlPoint[] {
         return this.points;
-        
+
+    }
+
+    public movePoint(index: number, x: number, y: number): void {
+        this.points[index].x = x;
+        this.points[index].y = y;
     }
 }
