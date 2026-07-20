@@ -5,36 +5,69 @@ import { Viewport } from "./Viewport";
 export class TrackEditor {
     private readonly svg: SVGSVGElement;
     private readonly centerline = new Centerline();
+    private readonly viewport = new Viewport();
     private readonly renderer: Renderer;
+
     private draggedPoint = -1;
     private hoveredPoint = -1;
-    private readonly viewport = new Viewport();
+
+    private isPanning = false;
+    private lastMouseX = 0;
+    private lastMouseY = 0;
 
     constructor(svg: SVGSVGElement) {
         this.svg = svg;
 
-        this.svg.addEventListener("mousedown", this.onMouseDown.bind(this));
-        window.addEventListener("mousemove", this.onMouseMove.bind(this));
-        window.addEventListener("mouseup", this.onMouseUp.bind(this));
-
         this.renderer = new Renderer(
             this.svg,
             this.viewport
-        )
+        );
 
-        this.render();
+        this.svg.addEventListener(
+            "wheel",
+            this.onWheel.bind(this),
+            { passive: false }
+        );
 
-        this.svg.addEventListener("contextmenu", (event) => {
-            event.preventDefault();
-        })
+        this.svg.addEventListener(
+            "mousedown",
+            this.onMouseDown.bind(this)
+        );
+
+        window.addEventListener(
+            "mousemove",
+            this.onMouseMove.bind(this)
+        );
+
+        window.addEventListener(
+            "mouseup",
+            this.onMouseUp.bind(this)
+        );
 
         this.svg.addEventListener(
             "contextmenu",
             this.onRightClick.bind(this)
         );
+
+        this.render();
     }
 
     private onMouseDown(event: MouseEvent): void {
+        // Middle mouse -> pan
+        if (event.button === 1) {
+            event.preventDefault();
+
+            this.isPanning = true;
+            this.lastMouseX = event.clientX;
+            this.lastMouseY = event.clientY;
+            return;
+        }
+
+        // Only left mouse edits
+        if (event.button !== 0) {
+            return;
+        }
+
         const point = this.getMousePosition(event);
 
         const index = this.findPoint(point.x, point.y);
@@ -50,6 +83,19 @@ export class TrackEditor {
     }
 
     private onMouseMove(event: MouseEvent): void {
+        if (this.isPanning) {
+            const dx = event.clientX - this.lastMouseX;
+            const dy = event.clientY - this.lastMouseY;
+
+            this.viewport.pan(dx, dy);
+
+            this.lastMouseX = event.clientX;
+            this.lastMouseY = event.clientY;
+
+            this.render();
+            return;
+        }
+
         const point = this.getMousePosition(event);
 
         this.hoveredPoint = this.findPoint(point.x, point.y);
@@ -63,6 +109,15 @@ export class TrackEditor {
         }
 
         this.render();
+    }
+
+    private onMouseUp(event: MouseEvent): void {
+        if (event.button === 1) {
+            this.isPanning = false;
+            return;
+        }
+
+        this.draggedPoint = -1;
     }
 
     private onRightClick(event: MouseEvent): void {
@@ -87,14 +142,28 @@ export class TrackEditor {
         this.render();
     }
 
-    private onMouseUp(): void {
-        this.draggedPoint = -1;
-    }
+    private onWheel(event: WheelEvent): void {
+        event.preventDefault();
 
-    private onClick(event: MouseEvent): void {
-        const point = this.getMousePosition(event);
+        const pt = this.svg.createSVGPoint();
 
-        this.centerline.addPoint(point.x, point.y);
+        pt.x = event.clientX;
+        pt.y = event.clientY;
+
+        const svgPoint = pt.matrixTransform(
+            this.svg.getScreenCTM()!.inverse()
+        );
+
+        const factor =
+            event.deltaY < 0
+                ? 1.1
+                : 0.9;
+
+        this.viewport.zoomAt(
+            svgPoint.x,
+            svgPoint.y,
+            factor
+        );
 
         this.render();
     }
@@ -105,11 +174,14 @@ export class TrackEditor {
         pt.x = event.clientX;
         pt.y = event.clientY;
 
-        const transformed = pt.matrixTransform(
+        const svgPoint = pt.matrixTransform(
             this.svg.getScreenCTM()!.inverse()
         );
 
-        return transformed;
+        return this.viewport.screenToWorld(
+            svgPoint.x,
+            svgPoint.y
+        );
     }
 
     private findPoint(x: number, y: number): number {

@@ -7,16 +7,26 @@ export class Renderer {
         private readonly svg: SVGSVGElement,
         private readonly viewport: Viewport
     ) {
+        this.viewportGroup = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "g"
+        );
+
         this.editorLayer = document.createElementNS(
             "http://www.w3.org/2000/svg",
             "g"
         );
 
-        this.editorLayer.classList.add("editor-layer");
+        while (this.svg.firstChild) {
+            this.viewportGroup.appendChild(this.svg.firstChild);
+        }
 
-        this.svg.appendChild(this.editorLayer);
+        this.viewportGroup.appendChild(this.editorLayer);
+
+        this.svg.appendChild(this.viewportGroup);
     }
 
+    private readonly viewportGroup: SVGGElement;
     private readonly editorLayer: SVGGElement;
 
     public render(
@@ -25,7 +35,7 @@ export class Renderer {
         draggedPoint: number
     ): void {
 
-        this.editorLayer.setAttribute(
+        this.viewportGroup.setAttribute(
             "transform",
             this.viewport.getTransform()
         );
