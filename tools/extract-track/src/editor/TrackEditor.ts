@@ -1,5 +1,6 @@
 import { Centerline } from "./Centerline";
 import { Renderer } from "./Renderer";
+import { Viewport } from "./Viewport";
 
 export class TrackEditor {
     private readonly svg: SVGSVGElement;
@@ -7,6 +8,7 @@ export class TrackEditor {
     private readonly renderer: Renderer;
     private draggedPoint = -1;
     private hoveredPoint = -1;
+    private readonly viewport = new Viewport();
 
     constructor(svg: SVGSVGElement) {
         this.svg = svg;
@@ -15,7 +17,10 @@ export class TrackEditor {
         window.addEventListener("mousemove", this.onMouseMove.bind(this));
         window.addEventListener("mouseup", this.onMouseUp.bind(this));
 
-        this.renderer = new Renderer(this.svg)
+        this.renderer = new Renderer(
+            this.svg,
+            this.viewport
+        )
 
         this.render();
 

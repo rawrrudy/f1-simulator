@@ -1,14 +1,35 @@
 import { hover } from "framer-motion";
 import { ControlPoint } from "./ControlPoint";
+import { Viewport } from "./Viewport";
 
 export class Renderer {
-    constructor(private readonly svg: SVGSVGElement) {}
+    constructor(
+        private readonly svg: SVGSVGElement,
+        private readonly viewport: Viewport
+    ) {
+        this.editorLayer = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "g"
+        );
+
+        this.editorLayer.classList.add("editor-layer");
+
+        this.svg.appendChild(this.editorLayer);
+    }
+
+    private readonly editorLayer: SVGGElement;
 
     public render(
         points: readonly ControlPoint[],
         hoveredPoint: number,
         draggedPoint: number
     ): void {
+
+        this.editorLayer.setAttribute(
+            "transform",
+            this.viewport.getTransform()
+        );
+
         this.clear();
 
         this.drawLines(points);
@@ -42,7 +63,7 @@ export class Renderer {
 
             line.classList.add("editor-line");
 
-            this.svg.appendChild(line);
+            this.editorLayer.appendChild(line);
         }
     }
 
@@ -77,7 +98,7 @@ export class Renderer {
 
             circle.classList.add("editor-point");
 
-            this.svg.appendChild(circle);
+            this.editorLayer.appendChild(circle);
         }
     }
 }
