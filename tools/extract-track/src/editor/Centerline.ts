@@ -24,4 +24,17 @@ export class Centerline {
 
         this.points.splice(index, 1);
     }
+
+    public exportPoints(): string {
+        const lines = this.points.map(
+            p => `    { x: ${p.x.toFixed(2)}, y: ${p.y.toFixed(2)}`
+        );
+
+        return [
+            "export const bahrainLayout = [",
+            ...lines,
+            "];"
+        ].join("\n");
+    }
+    
 }

@@ -49,6 +49,11 @@ export class TrackEditor {
             this.onRightClick.bind(this)
         );
 
+        window.addEventListener(
+            "keydown",
+            this.onKeyDown.bind(this)
+        );
+
         this.render();
     }
 
@@ -207,5 +212,20 @@ export class TrackEditor {
             this.hoveredPoint,
             this.draggedPoint
         );
+    }
+
+    private async onKeyDown(event: KeyboardEvent): Promise<void> {
+        if (event.ctrlKey && event.key.toLowerCase() === "e") {
+            const text = this.centerline.exportPoints();
+
+            console.log(text);
+
+            try {
+                await navigator.clipboard.writeText(text);
+                alert("Track copied to clipboard");
+            } catch {
+                alert("Couldn't copy to clipboard. Check console.");
+            }
+        }
     }
 }
