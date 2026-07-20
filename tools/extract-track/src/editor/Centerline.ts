@@ -16,4 +16,12 @@ export class Centerline {
         this.points[index].x = x;
         this.points[index].y = y;
     }
+
+    public removePoint(index: number): void {
+        if (index < 0 || index >= this.points.length) {
+            return;
+        }
+
+        this.points.splice(index, 1);
+    }
 }

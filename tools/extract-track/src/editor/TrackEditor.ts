@@ -18,6 +18,15 @@ export class TrackEditor {
         this.renderer = new Renderer(this.svg)
 
         this.render();
+
+        this.svg.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        })
+
+        this.svg.addEventListener(
+            "contextmenu",
+            this.onRightClick.bind(this)
+        );
     }
 
     private onMouseDown(event: MouseEvent): void {
@@ -46,6 +55,28 @@ export class TrackEditor {
                 point.x,
                 point.y
             );
+        }
+
+        this.render();
+    }
+
+    private onRightClick(event: MouseEvent): void {
+        event.preventDefault();
+
+        const point = this.getMousePosition(event);
+
+        const index = this.findPoint(point.x, point.y);
+
+        if (index < 0) {
+            return;
+        }
+
+        this.centerline.removePoint(index);
+
+        this.hoveredPoint = -1;
+
+        if (this.draggedPoint === index) {
+            this.draggedPoint = -1;
         }
 
         this.render();
