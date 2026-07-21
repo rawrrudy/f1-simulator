@@ -9,6 +9,8 @@ export class Car extends Entity {
   speed = 0;
 
   lateralOffset = 0;
+  targetLateralOffset = 0;
+  preferredLateralOffset = 0;
 
   constructor(driver: Driver) {
     super();
@@ -17,7 +19,13 @@ export class Car extends Entity {
   }
 
   update(deltaTime: number) {
+    const STEER_SPEED = 5;
+
+    this.lateralOffset +=
+      (this.targetLateralOffset - this.lateralOffset) *
+      STEER_SPEED *
+      deltaTime;
+
     this.distance += this.speed * deltaTime;
   }
-  
 }
