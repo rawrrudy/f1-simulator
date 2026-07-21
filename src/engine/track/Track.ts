@@ -1,60 +1,18 @@
 import type { Vector2 } from "../../utils/Vector2";
 
 export class Track {
-  public readonly points: Vector2[];
+    publlic readonly points: Vector2[];
 
-  constructor(points: Vector2[]) {
-    this.points = points;
-  }
+    private readonly segmentLengths: number[] = [];
+    private readonly cumulativeLengths: number[] = [];
 
-  getPosition(distance: number): Vector2 {
+    public readonly totalLength: number;
 
-      const trackLength = this.points.length * 100;
+    constructor(points: Vector2[]) {
+      this.points = points;
 
-      distance = 
-          ((distance % trackLength) + trackLength) %
-          trackLength;
+      let total = 0;
 
-      const segmentLength = 100;
-
-      const segment = distance / segmentLength;
-
-      const current = Math.floor(segment);
-
-      const next = (current + 1) % this.points.length;
-
-      const t = segment - current;
-
-      const a = this.points[current];
-      const b = this.points[next];
-
-      return {
-          x: a.x + (b.x - a.x) * t,
-          y: a.y + (b.y - a.y) * t
-      };
-  }
-
-  getDirection(distance: number): number {
-    const trackLength = this.points.length * 100;
-
-    distance =
-        ((distance % trackLength) + trackLength) %
-        trackLength;
-
-    const segmentLength = 100;
-
-    const segment = distance / segmentLength;
-
-    const current = Math.floor(segment);
-
-    const next = (current + 1) % this.points.length;
-
-    const a = this.points[current];
-    const b = this.points[next];
-
-    return Math.atan2(
-        b.y - a.y,
-        b.x - a.x
-    );
-  }
+      this.cumulativeLengths.push(0);
+    }
 }

@@ -24,12 +24,15 @@ export class CarPass {
       ctx.translate(position.x, position.y);
       ctx.rotate(angle);
 
+      const width = 20;
+      const height = 40;
+
       ctx.drawImage(
         this.sprite.image,
-        -20,
-        -40,
-        40,
-        80
+        -width / 2,
+        -height / 2,
+        width,
+        height
       );
 
       ctx.restore();

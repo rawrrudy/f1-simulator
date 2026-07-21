@@ -8,6 +8,8 @@ export class Car extends Entity {
 
   speed = 0;
 
+  lateralOffset = 0;
+
   constructor(driver: Driver) {
     super();
 

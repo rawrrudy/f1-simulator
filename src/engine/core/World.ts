@@ -2,7 +2,7 @@ import { Track } from "../track/Track";
 import { TrackLoader } from "../track/TrackLoader";
 
 import { Car } from "../entities/Car";
-import { Driver } from "../entities/Driver";
+import { drivers } from "../../data/drivers";
 
 export class World {
   readonly width = 6000;
@@ -15,21 +15,17 @@ export class World {
   constructor() {
     this.track = TrackLoader.loadBahrain();
 
-    this.cars.push(
-      new Car(
-        new Driver(
-          "Max Verstappen",
-          99,
-          98,
-          96
-        )
-      )
-    );
+    for (let i = 0; i < drivers.length; i++) {
+      const car = new Car(drivers[i]);
 
-    this.cars[0].x = 1000;
-    this.cars[0].y = 1000;
+      car.distance = -i * 80;
 
-    this.cars[0].speed = 200;
+      car.speed = 185 + drivers[i].skill * 0.35;
+
+      car.lateralOffset = (Math.random() - 0.5) * 30;
+
+      this.cars.push(car);
+    }
   }
 
   update(deltaTime: number) {
