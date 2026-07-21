@@ -13,7 +13,10 @@ export class CarPass {
 
     for (const car of world.cars) {
       const position =
-        world.track.getPosition(car.distance);
+        world.track.getPosition(
+          car.distance,
+          car.lateralOffset
+        );
 
       const angle =
         world.track.getDirection(car.distance) +

@@ -15,14 +15,20 @@ export class World {
   constructor() {
     this.track = TrackLoader.loadBahrain();
 
+    const START_DISTANCE = 0;
+    const ROW_SPACING = 45;
+    const SIDE_OFFSET = 12;
+
     for (let i = 0; i < drivers.length; i++) {
       const car = new Car(drivers[i]);
 
-      car.distance = -i * 80;
+      const row = Math.floor(i / 2);
+      const isLeft = i % 2 === 0;
+
+      car.distance = START_DISTANCE - row * ROW_SPACING;
+      car.lateralOffset = isLeft ? -SIDE_OFFSET : SIDE_OFFSET;
 
       car.speed = 185 + drivers[i].skill * 0.35;
-
-      car.lateralOffset = (Math.random() - 0.5) * 30;
 
       this.cars.push(car);
     }
