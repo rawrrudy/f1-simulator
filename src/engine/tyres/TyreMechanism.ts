@@ -27,6 +27,12 @@ export class TyreMechanism {
 
     car.tyreGrip = 0.7 + (car.tyreWear / 100) * 0.3;
 
-    car.speed = car.baseSpeed * car.tyreGrip;
+    car.speed =
+        car.baseSpeed *
+        car.tyreGrip *
+        car.trafficMultiplier *
+        car.fuelMultiplier *
+        car.ersMultiplier *
+        car.weatherMultiplier;
   }
 }

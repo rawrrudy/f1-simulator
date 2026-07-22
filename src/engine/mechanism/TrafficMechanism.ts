@@ -37,15 +37,15 @@ export class TrafficMechanism {
         }
 
         if (closestDistance < 18) {
-          car.speed = Math.min(car.speed, closestAhead.speed);
+          car.trafficMultiplier = 0.85;
         } else {
-          car.speed = car.baseSpeed;
+          car.trafficMultiplier = 1;
         }
 
       } else {
 
         car.targetLateralOffset = car.preferredLateralOffset;
-        car.speed = car.baseSpeed;
+        car.trafficMultiplier = 1;
       }
     }
   }

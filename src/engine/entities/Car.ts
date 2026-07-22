@@ -10,6 +10,16 @@ export class Car extends Entity {
   baseSpeed = 0;
   speed = 0;
 
+  trafficMultiplier = 1;
+  fuelMultiplier = 1;
+
+  fuel = 100;
+  fuelCapacity = 100;
+  fuelMode = 1;
+  
+  ersMultiplier = 1;
+  weatherMultiplier = 1;
+
   compound: TyreCompound = TyreCompound.Medium;
 
   tyreWear = 100;
