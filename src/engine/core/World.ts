@@ -8,6 +8,7 @@ import { TrafficMechanism } from "../mechanism/TrafficMechanism";
 import { CollisionMechanism } from "../mechanism/CollisionMechanism";
 import { TyreMechanism } from "../tyres/TyreMechanism";
 import { LapMechanism } from "../mechanism/LapMechanism";
+import { LeaderboardMechanism } from "../mechanism/LeaderboardMechanism";
 
 export class World {
   readonly width = 6000;
@@ -16,6 +17,8 @@ export class World {
   readonly track: Track;
 
   readonly cars: Car[] = [];
+
+  leaderboard: Car[] = [];
 
   constructor() {
     this.track = TrackLoader.loadBahrain();
@@ -58,5 +61,7 @@ export class World {
       this.cars,
       this.track.totalLength
     );
+
+    this.leaderboard = LeaderboardMechanism.getOrder(this.cars);
   }
 }
