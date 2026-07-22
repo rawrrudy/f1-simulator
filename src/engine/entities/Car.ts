@@ -21,6 +21,17 @@ export class Car extends Entity {
   targetLateralOffset = 0;
   preferredLateralOffset = 0;
 
+  currentLap = 1;
+
+  lapDistance = 0;
+
+  lastLapTime = 0;
+  currentLapTime = 0;
+
+  bestLapTime = Infinity;
+
+  totalRaceTime = 0;
+
   constructor(driver: Driver) {
     super();
 
@@ -36,5 +47,8 @@ export class Car extends Entity {
       deltaTime;
 
     this.distance += this.speed * deltaTime;
+
+    this.currentLapTime += deltaTime;
+    this.totalRaceTime += deltaTime;
   }
 }
