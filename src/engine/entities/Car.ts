@@ -1,5 +1,6 @@
 import { Entity } from "./Entity";
 import { Driver } from "./Driver";
+import { TyreCompound } from "../tyres/TyreCompound";
 
 export class Car extends Entity {
   readonly driver: Driver;
@@ -8,6 +9,13 @@ export class Car extends Entity {
 
   baseSpeed = 0;
   speed = 0;
+
+  compound: TyreCompound = TyreCompound.Medium;
+
+  tyreWear = 100;
+  tyreGrip = 1;
+
+  lapsOnTyre = 0;
 
   lateralOffset = 0;
   targetLateralOffset = 0;
