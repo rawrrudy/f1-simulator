@@ -6,6 +6,7 @@ export class Car extends Entity {
 
   distance = 0;
 
+  baseSpeed = 0;
   speed = 0;
 
   lateralOffset = 0;

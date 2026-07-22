@@ -1,7 +1,7 @@
 import { Car } from "../entities/Car";
 
 export class TrafficMechanism {
-  static update(cars: Car[]) {
+  static update(cars: Car[], trackLength: number) {
     const SAFE_DISTANCE = 35;
     const OVERTAKE_OFFSET = 24;
 
@@ -12,7 +12,11 @@ export class TrafficMechanism {
       for (const other of cars) {
         if (car === other) continue;
 
-        const gap = other.distance - car.distance;
+        let gap = other.distance - car.distance;
+
+        if (gap < 0) {
+          gap += trackLength;
+        }
 
         if (gap > 0 && gap < closestDistance) {
           closestDistance = gap;
@@ -29,10 +33,19 @@ export class TrafficMechanism {
         if (car.preferredLateralOffset <= 0) {
           car.targetLateralOffset = -OVERTAKE_OFFSET;
         } else {
-            car.targetLateralOffset = OVERTAKE_OFFSET;
+          car.targetLateralOffset = OVERTAKE_OFFSET;
         }
+
+        if (closestDistance < 18) {
+          car.speed = Math.min(car.speed, closestAhead.speed);
+        } else {
+          car.speed = car.baseSpeed;
+        }
+
       } else {
+
         car.targetLateralOffset = car.preferredLateralOffset;
+        car.speed = car.baseSpeed;
       }
     }
   }

@@ -4,6 +4,8 @@ import { TrackLoader } from "../track/TrackLoader";
 import { Car } from "../entities/Car";
 import { drivers } from "../../data/drivers";
 
+import { TrafficMechanism } from "../mechanism/TrafficMechanism";
+
 export class World {
   readonly width = 6000;
   readonly height = 4000;
@@ -28,13 +30,16 @@ export class World {
       car.distance = START_DISTANCE - row * ROW_SPACING;
       car.lateralOffset = isLeft ? -SIDE_OFFSET : SIDE_OFFSET;
 
-      car.speed = 185 + drivers[i].skill * 0.35;
+      car.baseSpeed = 185 + drivers[i].skill * 0.35;
+      car.speed = car.baseSpeed;
 
       this.cars.push(car);
     }
   }
 
   update(deltaTime: number) {
+    TrafficMechanism.update(this.cars);
+
     for (const car of this.cars) {
       car.update(deltaTime);
     }
