@@ -5,6 +5,7 @@ import { Car } from "../entities/Car";
 import { drivers } from "../../data/drivers";
 
 import { TrafficMechanism } from "../mechanism/TrafficMechanism";
+import { CollisionMechanism } from "../mechanism/CollisionMechanism";
 
 export class World {
   readonly width = 6000;
@@ -38,10 +39,15 @@ export class World {
   }
 
   update(deltaTime: number) {
-    TrafficMechanism.update(this.cars);
+    TrafficMechanism.update(this.cars, this.track.totalLength);
 
     for (const car of this.cars) {
-      car.update(deltaTime);
+        car.update(deltaTime);
     }
+
+    CollisionMechanism.update(
+      this.cars,
+      this.track.totalLength
+    );
   }
 }
