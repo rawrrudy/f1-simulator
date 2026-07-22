@@ -1,6 +1,7 @@
 import { Entity } from "./Entity";
 import { Driver } from "./Driver";
 import { TyreCompound } from "../tyres/TyreCompound";
+import { CarState } from "./CarState";
 
 export class Car extends Entity {
   readonly driver: Driver;
@@ -16,7 +17,13 @@ export class Car extends Entity {
   fuel = 100;
   fuelCapacity = 100;
   fuelMode = 1;
-  
+
+  state: CarState = CarState.Racing;
+
+  pitTimer = 0;
+
+  wantsToPit = false;
+
   ersMultiplier = 1;
   weatherMultiplier = 1;
 

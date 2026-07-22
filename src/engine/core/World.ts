@@ -9,6 +9,7 @@ import { CollisionMechanism } from "../mechanism/CollisionMechanism";
 import { TyreMechanism } from "../tyres/TyreMechanism";
 import { LapMechanism } from "../mechanism/LapMechanism";
 import { LeaderboardMechanism } from "../mechanism/LeaderboardMechanism";
+import { FuelMechanism } from "../mechanism/FuelMechanism";
 
 export class World {
   readonly width = 6000;
@@ -47,6 +48,9 @@ export class World {
     TrafficMechanism.update(this.cars, this.track.totalLength);
 
     for (const car of this.cars) {
+
+        FuelMechanism.update(car, deltaTime);
+
         TyreMechanism.update(car, deltaTime);
 
         car.update(deltaTime);
