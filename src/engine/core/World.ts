@@ -3,7 +3,7 @@ import { TrackLoader } from "../track/TrackLoader";
 
 import { Car } from "../entities/Car";
 import { drivers } from "../../data/drivers";
-
+import { PitMechanism } from "../mechanism/PitMechanism";
 import { TrafficMechanism } from "../mechanism/TrafficMechanism";
 import { CollisionMechanism } from "../mechanism/CollisionMechanism";
 import { TyreMechanism } from "../tyres/TyreMechanism";
@@ -42,12 +42,17 @@ export class World {
 
       this.cars.push(car);
     }
+
+    this.cars[2].wantsToPit = true;
+    
   }
 
   update(deltaTime: number) {
     TrafficMechanism.update(this.cars, this.track.totalLength);
 
     for (const car of this.cars) {
+
+        PitMechanism.update(car, deltaTime);
 
         FuelMechanism.update(car, deltaTime);
 
@@ -67,5 +72,12 @@ export class World {
     );
 
     this.leaderboard = LeaderboardMechanism.getOrder(this.cars);
+
+    console.log(
+      this.cars[2].driver.name,
+      this.cars[2].state,
+      this.cars[2].pitTimer.toFixed(2),
+      this.cars[2].tyreWear.toFixed(1)
+    );
   }
 }

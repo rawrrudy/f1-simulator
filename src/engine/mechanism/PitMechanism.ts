@@ -13,7 +13,7 @@ export class PitMechanism {
         break;
 
       case CarState.PitEntry:
-        car.state = CarState.PitEntry;
+        car.state = CarState.PitLane;
         break;
 
       case CarState.PitLane:
