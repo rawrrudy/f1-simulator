@@ -10,7 +10,7 @@ export class GameEngine {
 
   private renderer: CanvasRenderer;
 
-  private world = new World();
+  readonly world = new World();
 
   constructor(canvas: HTMLCanvasElement) {
     this.renderer = new CanvasRenderer(

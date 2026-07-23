@@ -5,7 +5,7 @@ import { HUD } from "./hud/HUD";
 export function GameCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  useGameEngine(canvasRef);
+  const engineRef = useGameEngine(canvasRef);
 
   return (
     <div 
