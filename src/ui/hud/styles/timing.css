@@ -3,27 +3,27 @@
     top: 24px;
     left: 24px;
 
-    width: 180px;
+    width: 205px;
 
-    background: rgba(18, 18, 18, 0.88);
-    backdrop-filter: blur(8px);
+    background: rgba(18,18,18,.90);
+    backdrop-filter: blur(10px);
 
     border-radius: 6px;
+
     overflow: hidden;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    box-shadow: 0 12px 40px rgba(0,0,0,.4);
 }
 
 .timing-header {
-    background: #202020;
+    background: #161616;
 
     padding: 10px 12px;
 
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: .06em;
 
-    text-transform: uppercase;
+    letter-spacing: .06em;
 }
 
 .timing-list {
@@ -32,31 +32,48 @@
 }
 
 .timing-row {
+    position: relative;
+
     display: grid;
-    grid-template-columns: 28px 1fr auto;
+
+    grid-template-columns: 26px 4px 1fr auto;
 
     align-items: center;
 
-    height: 28px;
+    height: 30px;
 
     padding: 0 10px;
 
-    font-size: 13px;
-
     border-top: 1px solid rgba(255,255,255,.05);
+
+    background: rgba(255,255,255,.02);
 }
 
 .position {
     font-weight: 700;
-    opacity: .9;
+}
+
+.team-strip {
+    width: 4px;
+    height: 18px;
+
+    border-radius: 2px;
 }
 
 .driver {
+    padding-left: 10px;
+
     font-weight: 700;
+
     letter-spacing: .04em;
 }
 
 .gap {
-    opacity: .8;
     font-size: 12px;
+
+    opacity: .75;
+}
+
+.timing-row:hover {
+    background: rgba(255,255,255,.06);
 }

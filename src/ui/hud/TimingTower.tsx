@@ -1,4 +1,5 @@
 import "./styles/timing.css";
+import { TeamColors } from "./TeamColors";
 
 const rows = [
   "VER",
@@ -39,6 +40,13 @@ export function TimingTower() {
             <div className="position">
               {index + 1}
             </div>
+
+            <div
+              className="team-strip"
+              style={{
+                background: TeamColors[driver],
+              }}
+            />
 
             <div className="driver">
               {driver}
