@@ -1,24 +1,21 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { GameEngine } from "../engine/core/GameEngine";
+import { engineStore } from "../engine/core/EngineStore";
 
 export function useGameEngine(
   canvasRef: React.RefObject<HTMLCanvasElement | null>
 ) {
-  const engineRef = useRef<GameEngine | null>(null);
-
   useEffect(() => {
     if (!canvasRef.current) return;
 
     const engine = new GameEngine(canvasRef.current);
 
-    engineRef.current = engine;
+    engineStore.engine = engine;
 
     engine.start();
 
-    return () => {
-      engineRef.current = null;
+    return() => {
+      engineStore.engine = null;
     };
   }, [canvasRef]);
-
-  return engineRef;
-} 
+}
