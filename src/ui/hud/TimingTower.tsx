@@ -48,12 +48,21 @@ export function TimingTower() {
               }}
             />
 
-            <div className="driver">
+            <div
+              className="driver"
+              style={{
+                color: index === 0 ? "#FFFFFF" : "#ECECEC",
+              }}
+            >
               {driver}
             </div>
 
             <div className="gap">
-              {index === 0 ? "" : "+0.000"}
+              {
+                index === 0
+                  ? "LEADER"
+                  : `+${(index * 0.842).toFixed(3)}`
+              }
             </div>
           </div>
         ))}
