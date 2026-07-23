@@ -1,0 +1,62 @@
+.timing-tower {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+
+    width: 180px;
+
+    background: rgba(18, 18, 18, 0.88);
+    backdrop-filter: blur(8px);
+
+    border-radius: 6px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.timing-header {
+    background: #202020;
+
+    padding: 10px 12px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+
+    text-transform: uppercase;
+}
+
+.timing-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.timing-row {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+
+    align-items: center;
+
+    height: 28px;
+
+    padding: 0 10px;
+
+    font-size: 13px;
+
+    border-top: 1px solid rgba(255,255,255,.05);
+}
+
+.position {
+    font-weight: 700;
+    opacity: .9;
+}
+
+.driver {
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+
+.gap {
+    opacity: .8;
+    font-size: 12px;
+}
