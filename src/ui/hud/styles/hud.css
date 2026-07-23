@@ -1,0 +1,12 @@
+.hud {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.hud > * {
+    pointer-events: auto;
+}
