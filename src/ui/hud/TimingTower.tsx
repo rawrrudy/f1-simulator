@@ -1,50 +1,34 @@
 import "./styles/timing.css";
 import { TeamColors } from "./TeamColors";
-
-const rows = [
-  "VER",
-  "NOR",
-  "PIA",
-  "LEC",
-  "RUS",
-  "ANT",
-  "HAM",
-  "HAD",
-  "ALB",
-  "BEA",
-  "ALO",
-  "TSU",
-  "GAS",
-  "DOO",
-  "HUL",
-  "SAI",
-  "LAW",
-  "OCO",
-  "BOR",
-  "STR",
-];
+import { useWorld } from "./useWorld";
 
 export function TimingTower() {
+  const world = useWorld();
+
+  if (!world) {
+    return null;
+  }
+
   return (
     <div className="timing-tower">
       <div className="timing-header">
-        LAP 1 / 57
+        LAP {world.leaderboard[0]?.currentLap ?? 1} / 57
       </div>
 
       <div className="timing-list">
-        {rows.map((driver, index) => (
+        {world.leaderboard.map((car, index) => (
           <div
-            key={driver}
+            key={car.driver.name}
             className="timing-row"
           >
             <div className="position">
               {index + 1}
             </div>
 
-            <div
+            <div 
               className="team-strip"
               style={{
-                background: TeamColors[driver],
+                background: TeamColors[car.driver.shortName],
               }}
             />
 
@@ -54,15 +38,16 @@ export function TimingTower() {
                 color: index === 0 ? "#FFFFFF" : "#ECECEC",
               }}
             >
-              {driver}
+              {car.driver.shortName}
             </div>
 
             <div className="gap">
-              {
-                index === 0
-                  ? "LEADER"
-                  : `+${(index * 0.842).toFixed(3)}`
-              }
+              {index === 0
+                ? "LEADER"
+                : `+${(
+                    (world.leaderboard[0].distance - car.distance) / 
+                    200
+                ).toFixed(3)}`}
             </div>
           </div>
         ))}
