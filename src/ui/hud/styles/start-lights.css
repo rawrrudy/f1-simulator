@@ -1,0 +1,42 @@
+.start-lights {
+
+    position:absolute;
+
+    top:120px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:14px;
+
+    padding:18px 24px;
+
+    border-radius:14px;
+
+    background:rgba(15,15,15,.94);
+
+    box-shadow:0 10px 40px rgba(0,0,0,.45);
+}
+
+.light{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:#2d2d2d;
+
+    transition:.2s;
+}
+
+.light.on{
+
+    background:#E10600;
+
+    box-shadow:0 0 18px rgba(225,6,0,.8);
+}
