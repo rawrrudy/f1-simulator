@@ -52,6 +52,11 @@ export class Car extends Entity {
   drsAvailable = false;
   drsOpen = false;
 
+  isAttacking = false;
+  isDefending = false;
+
+  attackTimer = 0;
+
   constructor(driver: Driver) {
     super();
 
