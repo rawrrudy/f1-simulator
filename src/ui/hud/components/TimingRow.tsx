@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Car } from "../../../engine/entities/Car";
 import { TeamColors } from "../TeamColors";
 import "../styles/timing.css";
+import { TyreBadge } from "./TyreBadge";
 
 type Props = {
   car: Car;
@@ -52,8 +53,18 @@ export function TimingRow({
         }}
       />
 
-      <div className="driver">
-        {car.driver.shortName}
+      <div
+        style={{
+            display: "flex",
+            alignItems: "center",
+            paddingLeft: 10,
+        }}
+      >
+        <div className="driver">
+            {car.driver.shortName}
+        </div>
+
+        <TyreBadge compound={car.compound} />
       </div>
 
       <div className="gap">
