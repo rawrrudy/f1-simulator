@@ -6,11 +6,16 @@ export function useWorld(): World | null {
   const [, forceUpdate] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      forceUpdate(value => value + 1);
-    }, 100);
+    let animationFrame = 0;
 
-    return () => clearInterval(interval);
+    const update = () => {
+      forceUpdate((v) => v + 1);
+      animationFrame = requestAnimationFrame(update);
+    };
+
+    animationFrame = requestAnimationFrame(update);
+
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
 
   return engineStore.engine?.world ?? null;

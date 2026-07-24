@@ -20,13 +20,17 @@ export function TimingTower() {
 
       <div className="timing-list">
         {world.leaderboard.map((car, index) => {
-          const gap =
-            index === 0
-              ? "LEADER"
-              : `+${(
-                  (leader.distance - car.distance) /
-                  200
-                ).toFixed(3)}`;
+          let gap = "LEADER";
+
+          if (index > 0) {
+            let distanceGap = leader.distance - car.distance;
+
+            if (distanceGap < 0) {
+              distanceGap += world.track.totalLength;
+            }
+
+            gap = `+${(distanceGap / leader.speed).toFixed(1)}s`;
+          }
 
           return (
             <TimingRow
