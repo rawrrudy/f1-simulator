@@ -10,6 +10,7 @@ import { TyreMechanism } from "../tyres/TyreMechanism";
 import { LapMechanism } from "../mechanism/LapMechanism";
 import { LeaderboardMechanism } from "../mechanism/LeaderboardMechanism";
 import { FuelMechanism } from "../mechanism/FuelMechanism";
+import { RaceControlSystem } from "../racecontrol/RaceControlSystem";
 
 export class World {
   readonly width = 6000;
@@ -18,6 +19,8 @@ export class World {
   readonly track: Track;
 
   readonly cars: Car[] = [];
+
+  readonly raceControl = new RaceControlSystem();
 
   leaderboard: Car[] = [];
 
@@ -44,11 +47,18 @@ export class World {
     }
 
     this.cars[2].wantsToPit = true;
+
+    this.raceControl.show(
+      "BOX THIS LAP",
+      this.cars[2].driver.name
+    );
     
   }
 
   update(deltaTime: number) {
     TrafficMechanism.update(this.cars, this.track.totalLength);
+
+    this.raceControl.update(deltaTime);
 
     for (const car of this.cars) {
 
