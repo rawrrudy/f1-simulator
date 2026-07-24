@@ -1,0 +1,61 @@
+.top-bar {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: rgba(20,20,20,.92);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
+
+}
+
+.gp-name {
+
+    background: #E10600;
+
+    padding: 10px 16px;
+
+    letter-spacing: .06em;
+
+}
+
+.lap-counter {
+
+    padding: 0 4px;
+
+    white-space: nowrap;
+
+}
+
+.flag-status {
+
+    padding: 10px 16px;
+
+}
+
+.flag-status.green {
+
+    background: #00A651;
+
+}
