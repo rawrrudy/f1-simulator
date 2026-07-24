@@ -100,3 +100,39 @@
 .timing-row:first-child {
     background: rgba(225,6,0,.18);
 }
+
+.timing-row {
+    transition: 
+        transform .35s ease,
+        background .2s ease;
+}
+
+.position-up {
+    animation: moveUp .45s ease;
+}
+
+.position-down {
+    animation: moveDown .45s ease;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateX(18px);
+        background: rgba(0,255,120,.25);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveDown {
+    0% {
+        transform: translateX(-18px);
+        background: rgba(255,70,70,.25);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
