@@ -11,6 +11,7 @@ import { LapMechanism } from "../mechanism/LapMechanism";
 import { LeaderboardMechanism } from "../mechanism/LeaderboardMechanism";
 import { FuelMechanism } from "../mechanism/FuelMechanism";
 import { RaceControlSystem } from "../racecontrol/RaceControlSystem";
+import { DRSMechanism } from "../mechanism/DRSMechanism";
 
 export class World {
   readonly width = 6000;
@@ -57,6 +58,8 @@ export class World {
 
   update(deltaTime: number) {
     TrafficMechanism.update(this.cars, this.track.totalLength);
+
+    DRSMechanism.update(this.cars, this.track.totalLength);
 
     this.raceControl.update(deltaTime);
 

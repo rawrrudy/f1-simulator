@@ -49,6 +49,13 @@ export function TelemetryPanel() {
             : "--.--"}
         </span>
       </div>
+
+      <div className="telemetry-row">
+        <span>DRS</span>
+        <span>
+          {car.drsOpen ? "OPEN" : "OFF"}
+        </span>
+      </div>
     </div>
   );
 }
