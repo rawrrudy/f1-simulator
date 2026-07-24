@@ -1,0 +1,66 @@
+.race-control {
+
+    position: absolute;
+
+    bottom: 36px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 280px;
+
+    background: rgba(20,20,20,.92);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    animation: slideUp .35s ease;
+}
+
+.race-control-title {
+
+    background: #E10600;
+
+    font-weight: 700;
+
+    font-size: 12px;
+
+    letter-spacing: .08em;
+
+    padding: 8px 12px;
+}
+
+.race-message {
+
+    padding: 14px 16px 6px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.race-subtitle {
+
+    padding: 0 16px 14px;
+
+    opacity: .8;
+}
+
+@keyframes slideUp {
+
+    from {
+
+        opacity:0;
+
+        transform:translate(-50%,30px);
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:translate(-50%,0);
+    }
+}
