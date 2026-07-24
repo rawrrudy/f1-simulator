@@ -49,6 +49,9 @@ export class Car extends Entity {
 
   totalRaceTime = 0;
 
+  drsAvailable = false;
+  drsOpen = false;
+
   constructor(driver: Driver) {
     super();
 
