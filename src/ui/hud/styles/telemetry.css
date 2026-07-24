@@ -1,0 +1,37 @@
+.telemetry {
+    position: absolute;
+    top: 90px;
+    right: 20px;
+
+    width: 220px;
+
+    background: rgba(20,20,20,.92);
+    border-radius: 8px;
+
+    padding: 14px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
+
+    font-size: 13px;
+}
+
+.telemetry-driver {
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.telemetry-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 8px 0;
+}
+
+.telemetry-row span:first-child {
+    opacity: .65;
+}
