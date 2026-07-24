@@ -73,11 +73,5 @@ export class World {
 
     this.leaderboard = LeaderboardMechanism.getOrder(this.cars);
 
-    console.log(
-      this.cars[2].driver.name,
-      this.cars[2].state,
-      this.cars[2].pitTimer.toFixed(2),
-      this.cars[2].tyreWear.toFixed(1)
-    );
   }
 }
