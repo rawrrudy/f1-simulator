@@ -59,3 +59,18 @@
     background: #00A651;
 
 }
+
+.flag-status.yellow {
+    background: #FFD500;
+    color: #111;
+}
+
+.flag-status.red {
+    background: #E10600;
+    color: white;
+}
+
+.flag-status.checker {
+    background: #ffffff;
+    color: #111;
+}

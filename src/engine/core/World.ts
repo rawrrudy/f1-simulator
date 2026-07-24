@@ -13,6 +13,7 @@ import { FuelMechanism } from "../mechanism/FuelMechanism";
 import { RaceControlSystem } from "../racecontrol/RaceControlSystem";
 import { DRSMechanism } from "../mechanism/DRSMechanism";
 import { OvertakeMechanism } from "../mechanism/OvertakeMechanism";
+import { RaceDirector } from "../race/RaceDirector";
 
 export class World {
   readonly width = 6000;
@@ -23,6 +24,8 @@ export class World {
   readonly cars: Car[] = [];
 
   readonly raceControl = new RaceControlSystem();
+
+  readonly raceDirector = new RaceDirector();
 
   leaderboard: Car[] = [];
 
