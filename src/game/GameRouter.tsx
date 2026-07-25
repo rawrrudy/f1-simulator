@@ -13,6 +13,9 @@ export function GameRouter() {
     case Screen.TeamSelection:
       return <TeamSelection />;
 
+    case Screen.DriverSelection:
+      return <h1>Driver Selection</h1>;
+
     default:
       return <MainMenu />;
   }

@@ -1,6 +1,7 @@
 import "./TeamSelection.css";
 
 import { teams } from "../../data/teams";
+import { TeamCard } from "../../components/TeamCard/TeamCard";
 import { Screen, useGame } from "../../state/GameContext";
 
 export function TeamSelection() {
@@ -14,37 +15,17 @@ export function TeamSelection() {
       <div className="team-grid">
 
         {teams.map((team) => (
-          <button
+          <TeamCard
             key={team.id}
-            className={
-              state.selectedTeam === team.id
-                ? "team-card selected"
-                : "team-card"
-            }
-            style={{
-              borderColor: team.color,
-            }}
-            onClick={() =>
+            team={team}
+            selected={state.selectedTeam === team.id}
+            onSelect={() =>
               setState((previous) => ({
                 ...previous,
                 selectedTeam: team.id,
               }))
             }
-          >
-            <span
-              className="team-color"
-              style={{
-                background: team.color,
-              }}
-            />
-
-            <h2>{team.name}</h2>
-
-            <p>
-              {team.drivers[0].shortName} •{" "}
-              {team.drivers[1].shortName} 
-            </p>
-          </button>
+          />
         ))}
       </div>
 
