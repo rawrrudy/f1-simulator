@@ -52,50 +52,72 @@ export class World {
       this.cars.push(car);
     }
 
+    // Initial race order
+    this.leaderboard = LeaderboardMechanism.getOrder(this.cars);
+
+    // Demo pit call
     this.cars[2].wantsToPit = true;
 
     this.raceControl.show(
       "BOX THIS LAP",
       this.cars[2].driver.name
     );
-    
   }
 
   update(deltaTime: number) {
-    TrafficMechanism.update(this.cars, this.track.totalLength);
-
-    OvertakeMechanism.update(
-        this.leaderboard,
-        this.track.totalLength
-    );
-
-    DRSMechanism.update(this.cars, this.track.totalLength);
-
-    this.raceControl.update(deltaTime);
-
-    for (const car of this.cars) {
-
-        PitMechanism.update(car, deltaTime);
-
-        FuelMechanism.update(car, deltaTime);
-
-        TyreMechanism.update(car, deltaTime);
-
-        car.update(deltaTime);
-
-        LapMechanism.update(
-          car,
-          this.track.totalLength
-        );
+    // Stop simulation after the race finishes
+    if (this.raceDirector.isFinished()) {
+      return;
     }
 
+    // Update race control timers
+    this.raceControl.update(deltaTime);
+
+    // Refresh current running order
+    this.leaderboard = LeaderboardMechanism.getOrder(this.cars);
+
+    // Traffic
+    TrafficMechanism.update(
+      this.cars,
+      this.track.totalLength
+    );
+
+    OvertakeMechanism.update(
+      this.leaderboard,
+      this.track.totalLength
+    );
+
+    DRSMechanism.update(
+      this.cars,
+      this.track.totalLength
+    );
+
+    // Update each car
+    for (const car of this.cars) {
+      PitMechanism.update(car, deltaTime);
+
+      FuelMechanism.update(car, deltaTime);
+
+      TyreMechanism.update(car, deltaTime);
+
+      car.update(deltaTime);
+
+      LapMechanism.update(
+        car,
+        this.track.totalLength
+      );
+    }
+
+    // Resolve collisions
     CollisionMechanism.update(
       this.cars,
       this.track.totalLength
     );
 
+    // Refresh leaderboard after movement
     this.leaderboard = LeaderboardMechanism.getOrder(this.cars);
 
+    // Check for race finish
     const leader = this.leaderboard[0];
 
     if (
@@ -111,6 +133,5 @@ export class World {
         "#FFFFFF"
       );
     }
-
   }
 }
