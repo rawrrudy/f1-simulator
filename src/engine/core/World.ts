@@ -14,6 +14,7 @@ import { RaceControlSystem } from "../racecontrol/RaceControlSystem";
 import { DRSMechanism } from "../mechanism/DRSMechanism";
 import { OvertakeMechanism } from "../mechanism/OvertakeMechanism";
 import { RaceDirector } from "../race/RaceDirector";
+import { RaceState } from "../race/RaceState";
 
 export class World {
   readonly width = 6000;
@@ -94,6 +95,22 @@ export class World {
     );
 
     this.leaderboard = LeaderboardMechanism.getOrder(this.cars);
+
+    const leader = this.leaderboard[0];
+
+    if (
+      leader &&
+      leader.currentLap >= 57 &&
+      !this.raceDirector.isFinished()
+    ) {
+      this.raceDirector.setState(RaceState.Finished);
+
+      this.raceControl.show(
+        "🏁 CHEQUERED FLAG",
+        `${leader.driver.name} WINS`,
+        "#FFFFFF"
+      );
+    }
 
   }
 }
