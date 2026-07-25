@@ -1,8 +1,10 @@
 import "./MainMenu.css";
-import { gameState } from "../../state/GameState";
-import { Screen } from "../../state/GameState";
+
+import { Screen, useGame } from "../../state/GameContext";
 
 export function MainMenu() {
+  const { setState } = useGame();
+
   return (
     <div className="main-menu">
       <h1>FORMULA 1</h1>
@@ -10,10 +12,12 @@ export function MainMenu() {
       <h2>STRATEGY SIMULATOR</h2>
 
       <button
-        onClick={() => {
-          gameState.currentScreen =
-            Screen.TeamSelection;
-        }}
+        onClick={() =>
+          setState((previous) => ({
+            ...previous,
+            currentScreen: Screen.TeamSelection,
+          }))
+        }
       >
         NEW GAME
       </button>
