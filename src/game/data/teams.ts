@@ -74,9 +74,9 @@ export const teams: Team[] = [
     color: "#FF8000",
     logo: mclarenLogo,
     carImage: mclarenCar,
-    carScale: 0.95,
-    carOffsetX: 20,
-    carOffsetY: 8,
+    carScale: 1.00,
+    carOffsetX: 240,
+    carOffsetY: 61,
     driverImages: [norrisImage, piastriImage],
     drivers: [
       {
@@ -98,9 +98,9 @@ export const teams: Team[] = [
     color: "#DC0000",
     logo: ferrariLogo,
     carImage: ferrariCar,
-    carScale: 1.08,
-    carOffsetX: -35,
-    carOffsetY: -8,
+    carScale: 0.99,
+    carOffsetX: 215,
+    carOffsetY: 200,
     driverImages: [leclercImage, hamiltonImage],
     drivers: [
       {
@@ -123,8 +123,8 @@ export const teams: Team[] = [
     logo: redBullLogo,
     carImage: redBullCar,
     carScale: 1.03,
-    carOffsetX: -10,
-    carOffsetY: 0,
+    carOffsetX: 230,
+    carOffsetY: 40,
     driverImages: [verstappenImage, perezImage],
     drivers: [
       {
@@ -147,8 +147,8 @@ export const teams: Team[] = [
     logo: mercedesLogo,
     carImage: mercedesCar,
     carScale: 1.02,
-    carOffsetX: 8,
-    carOffsetY: 4,
+    carOffsetX: 240,
+    carOffsetY: 60,
     driverImages: [antonelliImage, russellImage],
     drivers: [
       {
@@ -171,8 +171,8 @@ export const teams: Team[] = [
     logo: astonMartinLogo,
     carImage: astonMartinCar,
     carScale: 1.01,
-    carOffsetX: 5,
-    carOffsetY: 10,
+    carOffsetX: 244,
+    carOffsetY: 40,
     driverImages: [alonsoImage, strollImage],
     drivers: [
       {
@@ -195,8 +195,8 @@ export const teams: Team[] = [
     logo: alpineLogo,
     carImage: alpineCar,
     carScale: 0.98,
-    carOffsetX: 10,
-    carOffsetY: 12,
+    carOffsetX: 250,
+    carOffsetY: 100,
     driverImages: [gaslyImage, colapintoImage],
     drivers: [
       {
@@ -219,8 +219,8 @@ export const teams: Team[] = [
     logo: haasLogo,
     carImage: haasCar,
     carScale: 1.00,
-    carOffsetX: 0,
-    carOffsetY: 8,
+    carOffsetX: 245,
+    carOffsetY: 70,
     driverImages: [oconImage, bearmanImage],
     drivers: [
       {
@@ -243,8 +243,8 @@ export const teams: Team[] = [
     logo: williamsLogo,
     carImage: williamsCar,
     carScale: 0.97,
-    carOffsetX: 12,
-    carOffsetY: 10,
+    carOffsetX: 220,
+    carOffsetY: 65,
     driverImages: [sainzImage, albonImage],
     drivers: [
       {
@@ -267,8 +267,8 @@ export const teams: Team[] = [
     logo: racingBullsLogo,
     carImage: racingBullsCar,
     carScale: 0.99,
-    carOffsetX: 8,
-    carOffsetY: 8,
+    carOffsetX: 260,
+    carOffsetY: 60,
     driverImages: [hadjarImage, tsunodaImage],
     drivers: [
       {
@@ -291,8 +291,8 @@ export const teams: Team[] = [
     logo: sauberLogo,
     carImage: sauberCar,
     carScale: 1.00,
-    carOffsetX: 5,
-    carOffsetY: 6,
+    carOffsetX: 220,
+    carOffsetY: 60,
     driverImages: [hulkenbergImage, bortoletoImage],
     drivers: [
       {
