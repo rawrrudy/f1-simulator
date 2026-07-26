@@ -10,7 +10,7 @@ export function TeamSelection() {
   return (
     <div className="team-selection">
 
-      <h1>Choose Your Team</h1>
+      <h1>SELECT YOUR TEAM</h1>
 
       <div className="team-grid">
 

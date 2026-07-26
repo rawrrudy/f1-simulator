@@ -47,7 +47,21 @@ export function TeamCard({
             alt={team.drivers[0].name}
           />
 
-          <span>{team.drivers[0].name}</span>
+          <div className="driver-name">
+
+              <span className="driver-first">
+
+                {team.drivers[0].name.split(" ")[0]}
+
+              </span>
+
+              <span className="driver-last">
+
+                {team.drivers[0].name.split(" ")[1].toUpperCase()}
+
+              </span>
+          </div>
+
         </div>
 
         <div className="driver-chip">
@@ -56,7 +70,22 @@ export function TeamCard({
             alt={team.drivers[1].name}
           />
 
-          <span>{team.drivers[1].name}</span>
+          <div className="driver-name">
+            
+              <span className="driver-first">
+
+                {team.drivers[1].name.split(" ")[0]}
+
+              </span>
+
+              <span className="driver-last">
+
+                {team.drivers[1].name.split(" ")[1].toUpperCase()}
+
+              </span>
+
+          </div>
+          
         </div>
       </div>
 

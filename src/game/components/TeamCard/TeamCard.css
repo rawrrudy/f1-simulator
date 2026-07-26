@@ -47,16 +47,24 @@
   padding: 28px 34px 0;
 }
 
-.team-header h2 {
-  margin: 0;
+.team-header h2{
 
-  color: white;
+    margin: 0;
 
-  font-size: 44px;
+    font-family: var(--font-heading);
 
-  font-weight: 900;
+    font-size: 56px;
 
-  line-height: 1;
+    font-weight: 700;
+
+    letter-spacing: -0.03em;
+
+    line-height: 1;
+
+    color: white;
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,.25);
 }
 
 /* ==========================
@@ -64,27 +72,38 @@
 ========================== */
 
 .logo-container {
-  width: 64px;
-  height: 64px;
 
-  display: flex;
+    width: 74px;
+    height: 74px;
 
-  justify-content: center;
-  align-items: center;
+    display: flex;
 
-  border-radius: 50%;
+    justify-content: center;
+    align-items: center;
 
-  background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
 
-  backdrop-filter: blur(20px);
+    background: rgba(18, 20, 26, 0.72);
 
-  border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.35);
+
+    transition: all .25s ease;
 }
 
 .team-logo {
-  width: 34px;
 
-  transition: transform 0.3s ease;
+    width: 42px;
+
+    height: 42px;
+
+    object-fit: contain;
+
+    transition: transform .3s ease;
 }
 
 /* ==========================
@@ -118,8 +137,8 @@
 }
 
 .driver-chip img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
 
   border-radius: 50%;
 
@@ -188,4 +207,34 @@
         var(--team-color) 70%,
         white
       );
+}
+
+.driver-name{
+
+    display:flex;
+
+    flex-direction:column;
+
+    line-height:1;
+
+}
+
+.driver-first{
+
+    font-size:13px;
+
+    font-weight:500;
+
+    opacity:.9;
+
+}
+
+.driver-last{
+
+    font-size:17px;
+
+    font-weight:700;
+
+    letter-spacing:.03em;
+
 }
