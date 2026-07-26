@@ -18,7 +18,7 @@
 
     border-radius: 8px;
 
-    overflow: hidden;
+    overflow-y: auto;
 
     font-size: 13px;
 

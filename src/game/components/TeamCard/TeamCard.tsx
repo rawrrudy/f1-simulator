@@ -1,6 +1,9 @@
 import "./TeamCard.css";
 
+import type { CSSProperties } from "react";
 import type { Team } from "../../data/teams";
+
+import { GlassCard } from "../../ui/GlassCard/GlassCard";
 
 interface TeamCardProps {
   team: Team;
@@ -14,22 +17,61 @@ export function TeamCard({
   onSelect,
 }: TeamCardProps) {
   return (
-    <button
+    <GlassCard
       className={`team-card ${selected ? "selected" : ""}`}
-      style={{ borderColor: team.color }}
       onClick={onSelect}
+      style={
+        {
+          "--team-color": team.color,
+        } as CSSProperties
+      }
     >
-      <span
-        className="team-color"
-        style={{ backgroundColor: team.color }}
-      />
+      <div className="team-background" />
 
-      <h2>{team.name}</h2>
+      <div className="team-header">
+        <h2>{team.name}</h2>
 
-      <p>
-        {team.drivers[0].shortName} •{" "}
-        {team.drivers[1].shortName}
-      </p>
-    </button>
+        <div className="logo-container">
+          <img
+            className="team-logo"
+            src={team.logo}
+            alt={team.name}
+          />
+        </div>
+      </div>
+
+      <div className="driver-row">
+        <div className="driver-chip">
+          <img
+            src={team.driverImages[0]}
+            alt={team.drivers[0].name}
+          />
+
+          <span>{team.drivers[0].name}</span>
+        </div>
+
+        <div className="driver-chip">
+          <img
+            src={team.driverImages[1]}
+            alt={team.drivers[1].name}
+          />
+
+          <span>{team.drivers[1].name}</span>
+        </div>
+      </div>
+
+      <div className="car-wrapper">
+        <img
+          className="team-car"
+          src={team.carImage}
+          style={{
+              transform:
+                  `translate(${team.carOffsetX}px,
+                             ${team.carOffsetY}px)
+                   scale(${team.carScale})`
+          }}
+        />
+      </div>
+    </GlassCard>
   );
 }

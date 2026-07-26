@@ -12,6 +12,6 @@ body,
 }
 
 body {
-  overflow: hidden;
+  overflow-y: auto;
   background: #0b0d12;
 }
