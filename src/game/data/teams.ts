@@ -1,13 +1,66 @@
+// Logos
+import alpineLogo from "../../assets/logos/alpine.svg";
+import astonMartinLogo from "../../assets/logos/astonmartin.svg";
+import ferrariLogo from "../../assets/logos/ferrari.svg";
+import haasLogo from "../../assets/logos/haas.svg";
+import mclarenLogo from "../../assets/logos/mclaren.svg";
+import mercedesLogo from "../../assets/logos/mercedes.svg";
+import racingBullsLogo from "../../assets/logos/racingbulls.svg";
+import redBullLogo from "../../assets/logos/redbull.svg";
+import sauberLogo from "../../assets/logos/sauber.svg";
+import williamsLogo from "../../assets/logos/williams.svg";
+
+// Cars
+import alpineCar from "../../assets/cars/alpine.png";
+import astonMartinCar from "../../assets/cars/astonmartin.png";
+import ferrariCar from "../../assets/cars/ferrari.png";
+import haasCar from "../../assets/cars/haas.png";
+import mclarenCar from "../../assets/cars/mclaren.png";
+import mercedesCar from "../../assets/cars/mercedes.png";
+import racingBullsCar from "../../assets/cars/racingbulls.png";
+import redBullCar from "../../assets/cars/redbull.png";
+import sauberCar from "../../assets/cars/sauber.png";
+import williamsCar from "../../assets/cars/williams.png";
+
+// Drivers img
+import albonImage from "../../assets/drivers/albon.png";
+import alonsoImage from "../../assets/drivers/alonso.png";
+import antonelliImage from "../../assets/drivers/antonelli.png";
+import bearmanImage from "../../assets/drivers/bearman.png";
+import bortoletoImage from "../../assets/drivers/bortoleto.png";
+import colapintoImage from "../../assets/drivers/colapinto.png";
+import gaslyImage from "../../assets/drivers/gasly.png";
+import hadjarImage from "../../assets/drivers/hadjar.png";
+import hamiltonImage from "../../assets/drivers/hamilton.png";
+import hulkenbergImage from "../../assets/drivers/hulkenberg.png";
+import leclercImage from "../../assets/drivers/leclerc.png";
+import norrisImage from "../../assets/drivers/norris.png";
+import oconImage from "../../assets/drivers/ocon.png";
+import piastriImage from "../../assets/drivers/piastri.png";
+import russellImage from "../../assets/drivers/russell.png";
+import sainzImage from "../../assets/drivers/sainz.png";
+import strollImage from "../../assets/drivers/stroll.png";
+import tsunodaImage from "../../assets/drivers/tsunoda.png";
+import verstappenImage from "../../assets/drivers/verstappen.png";
+import perezImage from "../../assets/drivers/perez.png";
+
+export interface Driver {
+  id: string;
+  name: string;
+  shortName: string;
+}
+
 export interface Team {
   id: string;
   name: string;
   color: string;
 
-  drivers: {
-    id: string;
-    name: string;
-    shortName: string;
-  }[];
+  logo: string;
+  carImage: string;
+
+  driverImages: [string, string];
+
+  drivers: [Driver, Driver];
 }
 
 export const teams: Team[] = [
@@ -15,6 +68,9 @@ export const teams: Team[] = [
     id: "mclaren",
     name: "McLaren",
     color: "#FF8000",
+    logo: mclarenLogo,
+    carImage: mclarenCar,
+    driverImages: [norrisImage, piastriImage],
     drivers: [
       {
         id: "norris",
@@ -33,6 +89,9 @@ export const teams: Team[] = [
     id: "ferrari",
     name: "Ferrari",
     color: "#DC0000",
+    logo: ferrariLogo,
+    carImage: ferrariCar,
+    driverImages: [leclercImage, hamiltonImage],
     drivers: [
       {
         id: "leclerc",
@@ -51,6 +110,9 @@ export const teams: Team[] = [
     id: "redbull",
     name: "Red Bull Racing",
     color: "#1E41FF",
+    logo: redBullLogo,
+    carImage: redBullCar,
+    driverImages: [verstappenImage, perezImage],
     drivers: [
       {
         id: "verstappen",
@@ -58,9 +120,9 @@ export const teams: Team[] = [
         shortName: "VER",
       },
       {
-        id: "tsunoda",
-        name: "Yuki Tsunoda",
-        shortName: "TSU",
+        id: "perez",
+        name: "Sergio Perez",
+        shortName: "PER",
       },
     ],
   },
@@ -69,16 +131,19 @@ export const teams: Team[] = [
     id: "mercedes",
     name: "Mercedes",
     color: "#27F4D2",
+    logo: mercedesLogo,
+    carImage: mercedesCar,
+    driverImages: [antonelliImage, russellImage],
     drivers: [
-      {
-        id: "russell",
-        name: "George Russell",
-        shortName: "RUS",
-      },
       {
         id: "antonelli",
         name: "Kimi Antonelli",
         shortName: "ANT",
+      },
+      {
+        id: "russell",
+        name: "George Russell",
+        shortName: "RUS",
       },
     ],
   },
@@ -87,6 +152,9 @@ export const teams: Team[] = [
     id: "astonmartin",
     name: "Aston Martin",
     color: "#006F62",
+    logo: astonMartinLogo,
+    carImage: astonMartinCar,
+    driverImages: [alonsoImage, strollImage],
     drivers: [
       {
         id: "alonso",
@@ -105,6 +173,9 @@ export const teams: Team[] = [
     id: "alpine",
     name: "Alpine",
     color: "#0090FF",
+    logo: alpineLogo,
+    carImage: alpineCar,
+    driverImages: [gaslyImage, colapintoImage],
     drivers: [
       {
         id: "gasly",
@@ -123,6 +194,9 @@ export const teams: Team[] = [
     id: "haas",
     name: "Haas",
     color: "#B6BABD",
+    logo: haasLogo,
+    carImage: haasCar,
+    driverImages: [oconImage, bearmanImage],
     drivers: [
       {
         id: "ocon",
@@ -141,16 +215,19 @@ export const teams: Team[] = [
     id: "williams",
     name: "Williams",
     color: "#005AFF",
+    logo: williamsLogo,
+    carImage: williamsCar,
+    driverImages: [sainzImage, albonImage],
     drivers: [
-      {
-        id: "albon",
-        name: "Alexander Albon",
-        shortName: "ALB",
-      },
       {
         id: "sainz",
         name: "Carlos Sainz",
         shortName: "SAI",
+      },
+      {
+        id: "albon",
+        name: "Alex Albon",
+        shortName: "ALB",
       },
     ],
   },
@@ -159,6 +236,9 @@ export const teams: Team[] = [
     id: "racing-bulls",
     name: "Racing Bulls",
     color: "#6692FF",
+    logo: racingBullsLogo,
+    carImage: racingBullsCar,
+    driverImages: [hadjarImage, tsunodaImage],
     drivers: [
       {
         id: "hadjar",
@@ -166,9 +246,9 @@ export const teams: Team[] = [
         shortName: "HAD",
       },
       {
-        id: "lawson",
-        name: "Liam Lawson",
-        shortName: "LAW",
+        id: "tsunoda",
+        name: "Yuki Tsunoda",
+        shortName: "TSU",
       },
     ],
   },
@@ -177,10 +257,13 @@ export const teams: Team[] = [
     id: "sauber",
     name: "Sauber",
     color: "#52E252",
+    logo: sauberLogo,
+    carImage: sauberCar,
+    driverImages: [hulkenbergImage, bortoletoImage],
     drivers: [
       {
         id: "hulkenberg",
-        name: "Nico Hülkenberg",
+        name: "Nico Hulkenberg",
         shortName: "HUL",
       },
       {
@@ -191,3 +274,4 @@ export const teams: Team[] = [
     ],
   },
 ];
+
