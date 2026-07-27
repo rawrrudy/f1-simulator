@@ -48,6 +48,9 @@ export function DriverSelection() {
       <div className="driver-layout">
 
         <div className="driver-left">
+
+          <div className="driver-spotlight" />
+
           <img
             className="driver-hero"
             src={team.driverHeroes[0]}
@@ -62,6 +65,9 @@ export function DriverSelection() {
         </div>
 
         <div className="driver-right">
+
+          <div className="driver-spotlight" />
+          
           <img
             className="driver-hero"
             src={team.driverHeroes[1]}
