@@ -33,9 +33,11 @@ export function DriverSelection() {
       <div className="driver-layout">
 
         <div className="driver-left">
-
-            LEFT DRIVER
-
+          <img
+            className="driver-hero"
+            src={team.driverImages[0]}
+            alt={team.drivers[0].name}
+          />
         </div>
 
         <div className="driver-info">
@@ -45,9 +47,11 @@ export function DriverSelection() {
         </div>
 
         <div className="driver-right">
-
-            RIGHT DRIVER
-
+          <img
+            className="driver-hero"
+            src={team.driverImages[1]}
+            alt={team.drivers[1].name}
+          />
         </div>
 
       </div>

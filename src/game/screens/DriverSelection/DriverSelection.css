@@ -90,3 +90,34 @@
 
     justify-content: center;
 }
+
+.driver-hero {
+
+    height: 82vh;
+
+    object-fit: contain;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 28px 60px rgba(0,0,0,.45)
+        );
+
+    transition:
+        transform .35s ease;
+}
+
+.driver-left .driver-hero {
+
+    transform: translateX(80px);
+
+}
+
+.driver-right .driver-hero {
+
+    transform: translateX(-80px);
+    
+}
