@@ -23,6 +23,7 @@ export function TeamSelection() {
               setState((previous) => ({
                 ...previous,
                 selectedTeam: team.id,
+                selectedDriver: null,
               }))
             }
           />
@@ -36,6 +37,7 @@ export function TeamSelection() {
           setState((previous) => ({
             ...previous,
             currentScreen: Screen.DriverSelection,
+            selectedDriver: null,
           }))
         }
       >

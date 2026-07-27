@@ -1,20 +1,32 @@
 import "./DriverSelection.css";
+import { useGame } from "../../state/GameContext";
+import { teams } from "../../data/teams";
 
 export function DriverSelection() {
+  const { state } = useGame();
+
+  const team = teams.find(
+    (t) => t.id === state.selectedTeam
+  );
+
+  if (!team) {
+    return null;
+  }
+
   return (
     <div className="driver-selection">
       
       <div className="driver-background" />
 
-      <div className="team-header">
+      <div className="driver-team-header">
 
         <img
-          className="team-logo"
-          src=""
-          alt=""
+          className="driver-team-logo"
+          src={team.logo}
+          alt={team.name}
         />
 
-        <h1>SCUDERIA FERRARI</h1>
+        <h1>{team.name.toUpperCase()}</h1>
 
       </div>
 

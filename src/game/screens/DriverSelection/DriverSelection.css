@@ -28,7 +28,7 @@
     z-index: 0;
 }
 
-.team-header {
+.driver-team-header {
 
     position: relative;
 
@@ -43,14 +43,14 @@
     padding-top: 50px;
 }
 
-.team-logo {
+.driver-team-logo {
 
     width: 110px;
 
     margin-bottom: 20px;
 }
 
-.team-header h1 {
+.driver-team-header h1 {
 
     font-size: 48px;
 
