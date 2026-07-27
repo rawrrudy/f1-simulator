@@ -2,6 +2,8 @@ import "./DriverSelection.css";
 import { useGame } from "../../state/GameContext";
 import { teams } from "../../data/teams";
 import type React from "react";
+import { driverProfiles } from "../../data/driverProfiles";
+import { DriverInfoCard } from "../../components/DriverSelection/DriverInfoCard";
 
 export function DriverSelection() {
   const { state } = useGame();
@@ -13,6 +15,9 @@ export function DriverSelection() {
   if (!team) {
     return null;
   }
+
+  const selectedDriver = team.drivers[0];
+  const profile = driverProfiles[selectedDriver.name];
 
   return (
     <div className="driver-selection">
@@ -68,9 +73,18 @@ export function DriverSelection() {
         </div>
 
         <div className="driver-info">
-
-            INFO CARD 
-
+          <DriverInfoCard
+              driver={{
+                  name: selectedDriver.name,
+                  overall: profile.overall,
+                  pace: profile.racePace,
+                  qualifying: profile.qualifying,
+                  tyreManagement: profile.tyreManagement,
+                  consistency: profile.tyreManagement,
+                  aggression: profile.aggression,
+                  description: profile.description,
+              }}
+          />
         </div>
 
         <div className="driver-right">

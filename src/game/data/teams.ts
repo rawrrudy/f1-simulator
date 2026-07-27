@@ -108,8 +108,8 @@ export const teams: Team[] = [
     driverImages: [norrisImage, piastriImage],
     driverHeroes: [norrisHero, piastriHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
-    driverHeroOffsetY: [0, 0],
+    driverHeroOffsetX: [-100, 100],
+    driverHeroOffsetY: [-1, 0],
     drivers: [
       {
         id: "norris",
@@ -136,7 +136,7 @@ export const teams: Team[] = [
     driverImages: [leclercImage, hamiltonImage],
     driverHeroes: [leclercHero, hamiltonHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
@@ -164,7 +164,7 @@ export const teams: Team[] = [
     driverImages: [verstappenImage, perezImage],
     driverHeroes: [verstappenHero, perezHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
@@ -192,7 +192,7 @@ export const teams: Team[] = [
     driverImages: [antonelliImage, russellImage],
     driverHeroes: [antonelliHero, russellHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
@@ -220,7 +220,7 @@ export const teams: Team[] = [
     driverImages: [alonsoImage, strollImage],
     driverHeroes: [alonsoHero, strollHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
@@ -248,7 +248,7 @@ export const teams: Team[] = [
     driverImages: [gaslyImage, colapintoImage],
     driverHeroes: [gaslyHero, colapintoHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
@@ -276,7 +276,7 @@ export const teams: Team[] = [
     driverImages: [oconImage, bearmanImage],
     driverHeroes: [oconHero, bearmanHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
@@ -304,7 +304,7 @@ export const teams: Team[] = [
     driverImages: [sainzImage, albonImage],
     driverHeroes: [sainzHero, albonHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
@@ -332,7 +332,7 @@ export const teams: Team[] = [
     driverImages: [hadjarImage, tsunodaImage],
     driverHeroes: [hadjarHero, tsunodaHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
@@ -360,7 +360,7 @@ export const teams: Team[] = [
     driverImages: [hulkenbergImage, bortoletoImage],
     driverHeroes: [hulkenbergHero, bortoletoHero],
     driverHeroScale: [1, 1],
-    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetX: [-100, 100],
     driverHeroOffsetY: [0, 0],
     drivers: [
       {
