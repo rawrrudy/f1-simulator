@@ -1,6 +1,7 @@
 import "./DriverSelection.css";
 import { useGame } from "../../state/GameContext";
 import { teams } from "../../data/teams";
+import type React from "react";
 
 export function DriverSelection() {
   const { state } = useGame();
@@ -16,7 +17,21 @@ export function DriverSelection() {
   return (
     <div className="driver-selection">
       
-      <div className="driver-background" />
+      <div
+        className="driver-background"
+        style={
+          {
+            "--team-color": team.color,
+          } as React.CSSProperties
+        }
+      />
+
+      <img
+        className="driver-background-logo"
+        src={team.logo}
+        alt=""
+        aria-hidden="true"
+      />
 
       <div className="driver-team-header">
 
@@ -35,7 +50,7 @@ export function DriverSelection() {
         <div className="driver-left">
           <img
             className="driver-hero"
-            src={team.driverImages[0]}
+            src={team.driverHeroes[0]}
             alt={team.drivers[0].name}
           />
         </div>
@@ -49,7 +64,7 @@ export function DriverSelection() {
         <div className="driver-right">
           <img
             className="driver-hero"
-            src={team.driverImages[1]}
+            src={team.driverHeroes[1]}
             alt={team.drivers[1].name}
           />
         </div>

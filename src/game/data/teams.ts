@@ -44,6 +44,29 @@ import tsunodaImage from "../../assets/drivers/tsunoda.png";
 import verstappenImage from "../../assets/drivers/verstappen.png";
 import perezImage from "../../assets/drivers/perez.png";
 
+// Hero img
+import albonHero from "../../assets/driver-heroes/albonhero.png";
+import alonsoHero from "../../assets/driver-heroes/alonsohero.png";
+import antonelliHero from "../../assets/driver-heroes/antonellihero.png";
+import bearmanHero from "../../assets/driver-heroes/bearmanhero.png";
+import bortoletoHero from "../../assets/driver-heroes/bortoletohero.png";
+import colapintoHero from "../../assets/driver-heroes/colapintohero.png";
+import gaslyHero from "../../assets/driver-heroes/gaslyhero.png";
+import hadjarHero from "../../assets/driver-heroes/hadjarhero.png";
+import hamiltonHero from "../../assets/driver-heroes/hamiltonhero.png";
+import hulkenbergHero from "../../assets/driver-heroes/hulkenberghero.png";
+import leclercHero from "../../assets/driver-heroes/leclerchero.png";
+import norrisHero from "../../assets/driver-heroes/norrishero.png";
+import oconHero from "../../assets/driver-heroes/oconhero.png";
+import piastriHero from "../../assets/driver-heroes/piastrihero.png";
+import perezHero from "../../assets/driver-heroes/perezhero.png";
+import russellHero from "../../assets/driver-heroes/russellhero.png";
+import sainzHero from "../../assets/driver-heroes/sainzhero.png";
+import strollHero from "../../assets/driver-heroes/strollhero.png";
+import tsunodaHero from "../../assets/driver-heroes/tsunodahero.png";
+import verstappenHero from "../../assets/driver-heroes/verstappenhero.png";
+
+
 export interface Driver {
   id: string;
   name: string;
@@ -63,6 +86,7 @@ export interface Team {
   carOffsetY: number;
 
   driverImages: [string, string];
+  driverHeroes: [string, string];
 
   drivers: [Driver, Driver];
 }
@@ -78,6 +102,7 @@ export const teams: Team[] = [
     carOffsetX: 240,
     carOffsetY: 61,
     driverImages: [norrisImage, piastriImage],
+    driverHeroes: [norrisHero, piastriHero],
     drivers: [
       {
         id: "norris",
@@ -102,6 +127,7 @@ export const teams: Team[] = [
     carOffsetX: 215,
     carOffsetY: 200,
     driverImages: [leclercImage, hamiltonImage],
+    driverHeroes: [leclercHero, hamiltonHero],
     drivers: [
       {
         id: "leclerc",
@@ -126,6 +152,7 @@ export const teams: Team[] = [
     carOffsetX: 230,
     carOffsetY: 40,
     driverImages: [verstappenImage, perezImage],
+    driverHeroes: [verstappenHero, perezHero],
     drivers: [
       {
         id: "verstappen",
@@ -150,6 +177,7 @@ export const teams: Team[] = [
     carOffsetX: 240,
     carOffsetY: 60,
     driverImages: [antonelliImage, russellImage],
+    driverHeroes: [antonelliHero, russellHero],
     drivers: [
       {
         id: "antonelli",
@@ -174,6 +202,7 @@ export const teams: Team[] = [
     carOffsetX: 244,
     carOffsetY: 40,
     driverImages: [alonsoImage, strollImage],
+    driverHeroes: [alonsoHero, strollHero],
     drivers: [
       {
         id: "alonso",
@@ -198,6 +227,7 @@ export const teams: Team[] = [
     carOffsetX: 250,
     carOffsetY: 100,
     driverImages: [gaslyImage, colapintoImage],
+    driverHeroes: [gaslyHero, colapintoHero],
     drivers: [
       {
         id: "gasly",
@@ -222,6 +252,7 @@ export const teams: Team[] = [
     carOffsetX: 245,
     carOffsetY: 70,
     driverImages: [oconImage, bearmanImage],
+    driverHeroes: [oconHero, bearmanHero],
     drivers: [
       {
         id: "ocon",
@@ -246,6 +277,7 @@ export const teams: Team[] = [
     carOffsetX: 220,
     carOffsetY: 65,
     driverImages: [sainzImage, albonImage],
+    driverHeroes: [sainzHero, albonHero],
     drivers: [
       {
         id: "sainz",
@@ -270,6 +302,7 @@ export const teams: Team[] = [
     carOffsetX: 260,
     carOffsetY: 60,
     driverImages: [hadjarImage, tsunodaImage],
+    driverHeroes: [hadjarHero, tsunodaHero],
     drivers: [
       {
         id: "hadjar",
@@ -294,6 +327,7 @@ export const teams: Team[] = [
     carOffsetX: 220,
     carOffsetY: 60,
     driverImages: [hulkenbergImage, bortoletoImage],
+    driverHeroes: [hulkenbergHero, bortoletoHero],
     drivers: [
       {
         id: "hulkenberg",

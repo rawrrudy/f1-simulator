@@ -19,13 +19,50 @@
 
     inset: 0;
 
-    background:
+    background: 
+        
         radial-gradient(
+
             circle at center,
-            rgba(220,0,0,.35),
-            transparent 70%
+
+            color-mix(
+                in srgb,
+                var(--team-color) 45%,
+                transparent
+            ),
+
+            transparent 72%
+
         );
+    
     z-index: 0;
+}
+
+.driver-background-logo {
+    
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 55vw;
+
+    max-width: 900px;
+
+    transform:
+        translate(-50%, -42%);
+
+    opacity: 0.035;
+
+    filter:
+        grayscale(1)
+        brightness(3);
+
+    pointer-events: none;
+
+    user-select: none;
+
+    z-index: 1;
 }
 
 .driver-team-header {
