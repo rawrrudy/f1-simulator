@@ -6,7 +6,7 @@ import { driverProfiles } from "../../data/driverProfiles";
 import { DriverInfoCard } from "../../components/DriverSelection/DriverInfoCard";
 
 export function DriverSelection() {
-  const { state } = useGame();
+  const { state, setState } = useGame();
 
   const team = teams.find(
     (t) => t.id === state.selectedTeam
@@ -16,7 +16,11 @@ export function DriverSelection() {
     return null;
   }
 
-  const selectedDriver = team.drivers[0];
+  const selectedDriver =
+    team.drivers.find(
+      (driver) => driver.name === state.selectedDriver
+    ) ?? team.drivers[0];
+
   const profile = driverProfiles[selectedDriver.name];
 
   return (
@@ -52,7 +56,19 @@ export function DriverSelection() {
 
       <div className="driver-layout">
 
-        <div className="driver-left">
+        <div
+          className={`driver-left ${
+            selectedDriver.name === team.drivers[0].name
+              ? "selected"
+              : ""
+          }`}
+          onClick={() =>
+            setState((previous) => ({
+              ...previous,
+              selectedDriver: team.drivers[0].name,
+            }))
+          }
+        >
 
           <div className="driver-spotlight" />
 
@@ -87,7 +103,19 @@ export function DriverSelection() {
           />
         </div>
 
-        <div className="driver-right">
+        <div
+          className={`driver-right ${
+            selectedDriver.name === team.drivers[1].name
+              ? "selected"
+              : ""
+          }`}
+          onClick={() =>
+            setState((previous) => ({
+              ...previous,
+              selectedDriver: team.drivers[1].name,
+            }))
+          }
+        >
 
           <div className="driver-spotlight" />
 

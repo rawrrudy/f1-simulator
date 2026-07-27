@@ -33,13 +33,19 @@ export function TeamSelection() {
       <button
         className="continue-button"
         disabled={!state.selectedTeam}
-        onClick={() =>
+        onClick={() => {
+          const team = teams.find(
+            (t) => t.id === state.selectedTeam
+          );
+
+          if (!team) return;
+
           setState((previous) => ({
             ...previous,
             currentScreen: Screen.DriverSelection,
-            selectedDriver: null,
-          }))
-        }
+            selectedDriver: team.drivers[0].name,
+          }));
+        }}
       >
         CONTINUE
       </button>

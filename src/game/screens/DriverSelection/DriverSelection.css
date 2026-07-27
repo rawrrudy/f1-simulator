@@ -189,3 +189,38 @@
     transition:
         transform .35s ease;
 }
+
+.driver-left,
+.driver-right {
+
+    cursor: pointer;
+
+    transition: opacity .25s ease;
+}
+
+.driver-left .driver-hero,
+.driver-right .driver-hero {
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease,
+        filter .3s ease;
+}
+
+.driver-left:not(.selected) .driver-hero,
+.driver-right:not(.selected) .driver-hero {
+
+    opacity: .45;
+
+    filter: grayscale(.25);
+}
+
+.driver-left.selected .driver-hero,
+.driver-right.selected .driver-hero {
+
+    opacity: 1;
+
+    transform:
+        var(--driver-transform)
+        scale(1.05);
+}
