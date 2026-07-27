@@ -1,0 +1,92 @@
+.driver-selection {
+
+    position: relative;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #090A12;
+
+    color: white;
+}
+
+.driver-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(220,0,0,.35),
+            transparent 70%
+        );
+    z-index: 0;
+}
+
+.team-header {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 50px;
+}
+
+.team-logo {
+
+    width: 110px;
+
+    margin-bottom: 20px;
+}
+
+.team-header h1 {
+
+    font-size: 48px;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+}
+
+.driver-layout {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 1fr 420px 1fr;
+
+    align-items: center;
+
+    height: calc(100vh - 180px);
+}
+
+.driver-left,
+.driver-right {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+}
+
+.driver-info {
+
+    display: flex;
+
+    justify-content: center;
+}
