@@ -88,6 +88,10 @@ export interface Team {
   driverImages: [string, string];
   driverHeroes: [string, string];
 
+  driverHeroScale: [number, number];
+  driverHeroOffsetX: [number, number];
+  driverHeroOffsetY: [number, number];
+
   drivers: [Driver, Driver];
 }
 
@@ -103,6 +107,9 @@ export const teams: Team[] = [
     carOffsetY: 61,
     driverImages: [norrisImage, piastriImage],
     driverHeroes: [norrisHero, piastriHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "norris",
@@ -128,6 +135,9 @@ export const teams: Team[] = [
     carOffsetY: 200,
     driverImages: [leclercImage, hamiltonImage],
     driverHeroes: [leclercHero, hamiltonHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "leclerc",
@@ -153,6 +163,9 @@ export const teams: Team[] = [
     carOffsetY: 40,
     driverImages: [verstappenImage, perezImage],
     driverHeroes: [verstappenHero, perezHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "verstappen",
@@ -178,6 +191,9 @@ export const teams: Team[] = [
     carOffsetY: 60,
     driverImages: [antonelliImage, russellImage],
     driverHeroes: [antonelliHero, russellHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "antonelli",
@@ -203,6 +219,9 @@ export const teams: Team[] = [
     carOffsetY: 40,
     driverImages: [alonsoImage, strollImage],
     driverHeroes: [alonsoHero, strollHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "alonso",
@@ -228,6 +247,9 @@ export const teams: Team[] = [
     carOffsetY: 100,
     driverImages: [gaslyImage, colapintoImage],
     driverHeroes: [gaslyHero, colapintoHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "gasly",
@@ -253,6 +275,9 @@ export const teams: Team[] = [
     carOffsetY: 70,
     driverImages: [oconImage, bearmanImage],
     driverHeroes: [oconHero, bearmanHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "ocon",
@@ -278,6 +303,9 @@ export const teams: Team[] = [
     carOffsetY: 65,
     driverImages: [sainzImage, albonImage],
     driverHeroes: [sainzHero, albonHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "sainz",
@@ -303,6 +331,9 @@ export const teams: Team[] = [
     carOffsetY: 60,
     driverImages: [hadjarImage, tsunodaImage],
     driverHeroes: [hadjarHero, tsunodaHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "hadjar",
@@ -328,6 +359,9 @@ export const teams: Team[] = [
     carOffsetY: 60,
     driverImages: [hulkenbergImage, bortoletoImage],
     driverHeroes: [hulkenbergHero, bortoletoHero],
+    driverHeroScale: [1, 1],
+    driverHeroOffsetX: [0, 0],
+    driverHeroOffsetY: [0, 0],
     drivers: [
       {
         id: "hulkenberg",

@@ -55,6 +55,15 @@ export function DriverSelection() {
             className="driver-hero"
             src={team.driverHeroes[0]}
             alt={team.drivers[0].name}
+            style={{
+              transform: `
+                translate(
+                  ${team.driverHeroOffsetX[0]}px,
+                  ${team.driverHeroOffsetY[0]}px
+                )
+                scale(${team.driverHeroScale[0]})
+              `,
+            }}
           />
         </div>
 
@@ -67,11 +76,20 @@ export function DriverSelection() {
         <div className="driver-right">
 
           <div className="driver-spotlight" />
-          
+
           <img
             className="driver-hero"
             src={team.driverHeroes[1]}
             alt={team.drivers[1].name}
+            style={{
+              transform: `
+                translate(
+                  ${team.driverHeroOffsetX[1]}px,
+                  ${team.driverHeroOffsetY[1]}px
+                )
+                scale(${team.driverHeroScale[1]})
+              `,
+            }}
           />
         </div>
 

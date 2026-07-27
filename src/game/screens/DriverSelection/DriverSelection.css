@@ -189,15 +189,3 @@
     transition:
         transform .35s ease;
 }
-
-.driver-left .driver-hero {
-
-    transform: translateX(80px);
-
-}
-
-.driver-right .driver-hero {
-
-    transform: translateX(-80px);
-    
-}
