@@ -1,5 +1,5 @@
 import "./DriverSelection.css";
-import { useGame } from "../../state/GameContext";
+import { useGame, Screen } from "../../state/GameContext";
 import { teams } from "../../data/teams";
 import type React from "react";
 import { driverProfiles } from "../../data/driverProfiles";
@@ -96,11 +96,24 @@ export function DriverSelection() {
                   pace: profile.racePace,
                   qualifying: profile.qualifying,
                   tyreManagement: profile.tyreManagement,
-                  consistency: profile.tyreManagement,
+                  consistency: profile.consistency,
                   aggression: profile.aggression,
                   description: profile.description,
               }}
+              teamColor={team.color}
           />
+
+          <button
+            className="driver-continue-button"
+            onClick={() =>
+                setState(previous => ({
+                  ...previous,
+                  currentScreen: Screen.WeekendSetup,
+                }))
+            }
+          >
+            CONTINUE
+          </button>
         </div>
 
         <div

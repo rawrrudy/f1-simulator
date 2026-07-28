@@ -3,11 +3,13 @@ import "./DriverStat.css";
 interface DriverStatProps {
   label: string;
   value: number;
+  color: string;
 }
 
 export function DriverStat({
   label,
-  value
+  value,
+  color,
 }: DriverStatProps) {
   return (
     <div className="driver-stat">
@@ -22,10 +24,11 @@ export function DriverStat({
 
       <div className="driver-stat-bar">
 
-        <div
+        <div 
           className="driver-stat-fill"
           style={{
             width: `${value}%`,
+            background: `linear-gradient(90deg, ${color}, white)`,
           }}
         />
 

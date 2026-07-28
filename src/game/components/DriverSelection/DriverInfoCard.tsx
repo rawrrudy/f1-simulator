@@ -1,4 +1,5 @@
 import "./DriverInfoCard.css";
+import { DriverStat } from "./DriverStat";
 
 interface DriverInfoCardProps {
   driver: {
@@ -11,10 +12,14 @@ interface DriverInfoCardProps {
     aggression: number;
     description: string;
   };
+
+  teamColor: string;
+
 }
 
 export function DriverInfoCard({
   driver,
+  teamColor,
 }: DriverInfoCardProps) {
 
   return (
@@ -38,6 +43,40 @@ export function DriverInfoCard({
         <span>OVERALL</span>
 
         <strong>{driver.overall}</strong>
+
+      </div>
+
+      <div className="driver-stats">
+
+          <DriverStat
+              label="Race Pace"
+              value={driver.pace}
+              color={teamColor}
+          />
+
+          <DriverStat
+              label="Qualifying"
+              value={driver.qualifying}
+              color={teamColor}
+          />
+
+          <DriverStat
+              label="Tyre Management"
+              value={driver.tyreManagement}
+              color={teamColor}
+          />
+
+          <DriverStat
+              label="Consistency"
+              value={driver.consistency}
+              color={teamColor}
+          />
+
+          <DriverStat
+              label="Aggression"
+              value={driver.aggression}
+              color={teamColor}
+          />
 
       </div>
 
