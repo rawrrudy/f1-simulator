@@ -164,7 +164,11 @@
 
     display: flex;
 
-    justify-content: center;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    width: 460px;
 }
 
 .driver-hero {
@@ -227,39 +231,20 @@
 
 .driver-continue-button{
 
-    margin-top:32px;
-
-    width:100%;
-
-    padding:16px 24px;
+    color:white;
 
     border:none;
 
     border-radius:14px;
 
-    background:var(--team-color);
-
-    color:white;
+    padding:16px 24px;
 
     font-size:15px;
 
     font-weight:700;
 
-    letter-spacing:.08em;
-
     cursor:pointer;
 
-    transition:
-        transform .2s ease,
-        filter .2s ease,
-        box-shadow .2s ease;
-
-    box-shadow:
-        0 10px 30px color-mix(
-            in srgb,
-            var(--team-color) 40%,
-            transparent
-        );
 }
 
 .driver-continue-button:hover{

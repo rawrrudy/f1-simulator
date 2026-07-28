@@ -105,6 +105,9 @@ export function DriverSelection() {
 
           <button
             className="driver-continue-button"
+            style={{
+                background: team.color,
+            }}
             onClick={() =>
                 setState(previous => ({
                   ...previous,

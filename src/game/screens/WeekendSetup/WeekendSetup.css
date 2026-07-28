@@ -1,0 +1,163 @@
+.weekend-setup{
+
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2a180a,
+            #0b0d12 70%
+        );
+
+    color:white;
+
+}
+
+.weekend-overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            rgba(0,0,0,.25),
+
+            rgba(0,0,0,.65)
+
+        );
+
+}
+
+.weekend-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:1450px;
+
+    margin:auto;
+
+    padding:60px;
+
+}
+
+.weekend-header{
+
+    margin-bottom:55px;
+
+}
+
+.weekend-subtitle{
+
+    color:#ff7b00;
+
+    font-weight:700;
+
+    letter-spacing:.25em;
+
+    font-size:13px;
+
+}
+
+.weekend-header h1{
+
+    margin-top:8px;
+
+    font-size:58px;
+
+    font-weight:800;
+
+    letter-spacing:.05em;
+
+}
+
+.weekend-header p{
+
+    margin-top:12px;
+
+    opacity:.65;
+
+    font-size:18px;
+
+}
+
+.track-section{
+
+    margin-bottom:55px;
+
+}
+
+.track-section h2,
+.weather-section h2{
+
+    margin-bottom:22px;
+
+    font-size:18px;
+
+    letter-spacing:.12em;
+
+}
+
+.track-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+.weather-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,220px);
+
+    gap:24px;
+
+    margin-top:20px;
+
+}
+
+.weekend-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-top:60px;
+
+}
+
+.start-race-button{
+
+    padding:18px 42px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ff7b00;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    cursor:pointer;
+
+}
