@@ -2,6 +2,7 @@ import { MainMenu } from "./screens/MainMenu/MainMenu";
 import { TeamSelection } from "./screens/TeamSelection/TeamSelection";
 import { DriverSelection } from "./screens/DriverSelection/DriverSelection";
 import { WeekendSetup } from "./screens/WeekendSetup/WeekendSetup";
+import { Loading } from "./screens/Loading/Loading";
 
 
 import { Screen, useGame } from "./state/GameContext";
@@ -21,6 +22,9 @@ export function GameRouter() {
 
     case Screen.WeekendSetup:
       return <WeekendSetup />;
+
+    case Screen.Loading:
+      return <Loading />;
 
     default:
       return <MainMenu />;

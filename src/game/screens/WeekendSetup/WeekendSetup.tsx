@@ -1,11 +1,9 @@
 import "./WeekendSetup.css";
-
+import { WeatherCard } from "./WeatherCard";
 import { useState } from "react";
-
 import { tracks } from "../../data/tracks";
 import { TrackCard } from "./TrackCard";
-
-import { useGame } from "../../state/GameContext";
+import { useGame, Screen } from "../../state/GameContext";
 
 export function WeekendSetup() {
 
@@ -14,7 +12,9 @@ export function WeekendSetup() {
   const [selectedTrack, setSelectedTrack] = useState(
     tracks[0]
   );
-
+  const [selectedWeather, setSelectedWeather] = useState(
+    "Sunny"
+  );
   return (
     <div
       className="weekend-setup"
@@ -90,13 +90,87 @@ export function WeekendSetup() {
 
           <div className="weather-grid">
 
+              <WeatherCard
+                  
+                  icon="☀"
+
+                  title="SUNNY"
+
+                  subtitle="Dry Conditions"
+
+                  selected={selectedWeather === "Sunny"}
+
+                  onClick={() => {
+
+                      setSelectedWeather("Sunny");
+
+                      setState(previous => ({
+                        ...previous,
+                        weather: "Sunny",
+                      }));
+
+                  }}
+              />
+
+              <WeatherCard
+                  
+                  icon="☁"
+
+                  title="CLOUDY"
+
+                  subtitle="Cooler Track"
+
+                  selected={selectedWeather === "Cloudy"}
+
+                  onClick={() => {
+
+                      setSelectedWeather("Cloudy");
+
+                      setState(previous => ({
+                        ...previous,
+                        weather: "Cloudy",
+                      }));
+
+                  }}
+              />
+
+              <WeatherCard
+                  
+                  icon="🌧"
+
+                  title="RAINY"
+
+                  subtitle="Wet Conditions"
+
+                  selected={selectedWeather === "Rainy"}
+
+                  onClick={() => {
+
+                      setSelectedWeather("Rainy");
+
+                      setState(previous => ({
+                        ...previous,
+                        weather: "Rainy",
+                      }));
+
+                  }}
+              />
+
           </div>
 
         </section>
 
         <div className="weekend-footer">
 
-          <button className="start-race-button">
+          <button
+            className="start-race-button"
+            onClick={() =>
+              setState(previous => ({
+                ...previous,
+                currentScreen: Screen.Loading,
+              }))
+            }
+          >
 
             START RACE →
 
