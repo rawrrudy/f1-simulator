@@ -1,147 +1,170 @@
-.track-card{
+.track-card {
 
-    position:relative;
+    position: relative;
 
-    display:flex;
+    display: grid;
 
-    flex-direction:column;
+    grid-template-rows:
+        auto
+        1fr
+        auto;
 
-    justify-content:space-between;
+    width: 100%;
+    height: 430px;
 
-    width:100%;
+    padding: 24px;
 
-    height:420px;
+    overflow: hidden;
 
-    padding:26px;
-
-    border-radius:20px;
-
-    border:1px solid rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
 
     background:
-
         linear-gradient(
-
             180deg,
-
             rgba(255,255,255,.05),
-
             rgba(255,255,255,.02)
-
         );
 
-    backdrop-filter:blur(12px);
+    backdrop-filter: blur(12px);
 
-    cursor:pointer;
+    cursor: pointer;
 
     transition:
-
-        transform .25s,
-
-        border-color .25s,
-
-        box-shadow .25s,
-
-        background .25s;
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
 
 }
 
-.track-card:hover{
+.track-card:hover {
 
-    transform:translateY(-8px);
+    transform: translateY(-8px);
 
-    border-color:rgba(255,255,255,.25);
+    border-color: rgba(255,255,255,.22);
 
 }
 
-.track-card.selected{
+.track-card.selected {
 
-    border-color:white;
+    transform: translateY(-10px);
 
-    transform:translateY(-10px);
+    border-color: rgba(255,255,255,.85);
 
     box-shadow:
-
         0 20px 60px rgba(255,255,255,.08);
 
 }
 
-.track-card-top h3{
+.track-card-top {
 
-    font-size:26px;
+    text-align: center;
 
-    letter-spacing:.08em;
-
-}
-
-.track-card-top span{
-
-    opacity:.55;
-
-    font-size:14px;
+    margin-bottom: 22px;
 
 }
 
-.track-outline{
+.track-card-top h3 {
 
-    display:flex;
+    font-size: 24px;
 
-    justify-content:center;
+    font-weight: 800;
 
-    align-items:center;
+    letter-spacing: .08em;
 
-    flex:1;
+    margin-bottom: 6px;
 
 }
 
-.track-outline img{
+.track-card-top span {
 
-    width:78%;
+    opacity: .55;
 
-    height:auto;
+    font-size: 14px;
+
+}
+
+.track-outline {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+    padding: 10px 0;
+
+}
+
+.track-outline img {
+
+    max-width: 85%;
+
+    max-height: 170px;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
 
     filter:
-
         brightness(0)
-
         invert(1);
 
 }
 
-.track-divider{
+.track-divider {
 
-    height:1px;
+    height: 1px;
 
-    background:rgba(255,255,255,.08);
+    margin: 12px 0;
 
-    margin:18px 0;
-
-}
-
-.track-details{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:18px;
+    background: rgba(255,255,255,.08);
 
 }
 
-.track-details span{
+.track-details {
 
-    display:block;
+    display: grid;
 
-    opacity:.55;
+    grid-template-columns: repeat(2,1fr);
 
-    font-size:13px;
-
-    margin-bottom:5px;
+    gap: 16px 22px;
 
 }
 
-.track-details strong{
+.track-details div {
 
-    font-size:18px;
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.track-details span {
+
+    font-size: 12px;
+
+    opacity: .55;
+
+    margin-bottom: 4px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .06em;
+
+}
+
+.track-details strong {
+
+    font-size: 18px;
+
+    font-weight: 700;
 
 }

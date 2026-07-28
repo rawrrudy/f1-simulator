@@ -1,8 +1,31 @@
 import "./WeekendSetup.css";
 
+import { useState } from "react";
+
+import { tracks } from "../../data/tracks";
+import { TrackCard } from "./TrackCard";
+
+import { useGame } from "../../state/GameContext";
+
 export function WeekendSetup() {
+
+  const { setState } = useGame();
+
+  const [selectedTrack, setSelectedTrack] = useState(
+    tracks[0]
+  );
+
   return (
-    <div className="weekend-setup">
+    <div
+      className="weekend-setup"
+      style={{
+        background: `radial-gradient(
+          circle at top,
+          ${selectedTrack.theme},
+          #0b0d12 70%
+        )`,
+      }}
+    >
 
       <div className="weekend-overlay"/>
 
@@ -14,11 +37,12 @@ export function WeekendSetup() {
             GRAND PRIX WEEKEND
           </span>
 
-          <h1>Weekend Setup</h1>
+          <h1>
+            {selectedTrack.grandPrix}
+          </h1>
 
           <p>
-            Select your circuit and weather before heading
-            to the grid.
+            {selectedTrack.country}
           </p>
 
         </div>
@@ -28,6 +52,33 @@ export function WeekendSetup() {
           <h2>SELECT CIRCUIT</h2>
 
           <div className="track-grid">
+
+            {tracks.map(track => (
+
+              <TrackCard
+
+                key={track.id}
+
+                track={track}
+
+                selected={
+                  selectedTrack.id === track.id
+                }
+
+                onClick={() => {
+
+                  setSelectedTrack(track);
+
+                  setState(previous => ({
+                    ...previous,
+                    selectedTrack: track.id,
+                  }));
+
+                }}
+
+              />
+
+            ))}
 
           </div>
 
