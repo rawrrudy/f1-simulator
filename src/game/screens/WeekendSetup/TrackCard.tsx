@@ -1,11 +1,8 @@
 import "./TrackCard.css";
+import type { TrackInfo } from "../../data/tracks";
 
 interface TrackCardProps {
-  name: string;
-  length: string;
-  laps: number;
-  drsZones: number;
-  outline: string;
+  track: TrackInfo;
 
   selected: boolean;
 
@@ -13,41 +10,43 @@ interface TrackCardProps {
 }
 
 export function TrackCard({
-  name,
-  length,
-  laps,
-  drsZones,
-  outline,
+  track,
   selected,
   onClick,
 }: TrackCardProps) {
   return (
     <button
-      className={`track-card ${selected ? "selected" : ""}`}
+      className={`track-card ${
+        selected ? "selected" : ""
+      }`}
       onClick={onClick}
     >
-      <div className="track-card-header">
+      <div className="track-card-top">
 
-        <h3>{name}</h3>
+        <h3>{track.name.toUpperCase()}</h3>
+
+        <span>{track.country}</span>
 
       </div>
 
       <div className="track-outline">
 
         <img
-          src={outline}
-          alt={name}
+          src={track.outline}
+          alt={track.name}
         />
 
       </div>
 
-      <div className="track-meta">
+      <div className="track-divider"/>
+
+      <div className="track-details">
 
         <div>
-          
+
           <span>Length</span>
 
-          <strong>{length}</strong>
+          <strong>{track.length}</strong>
 
         </div>
 
@@ -55,7 +54,7 @@ export function TrackCard({
 
           <span>Laps</span>
 
-          <strong>{laps}</strong>
+          <strong>{track.laps}</strong>
 
         </div>
 
@@ -63,7 +62,15 @@ export function TrackCard({
 
           <span>DRS</span>
 
-          <strong>{drsZones}</strong>
+          <strong>{track.drsZones}</strong>
+
+        </div>
+
+        <div>
+
+          <span>Race</span>
+
+          <strong>{track.timeOfDay}</strong>
 
         </div>
 
