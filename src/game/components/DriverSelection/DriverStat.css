@@ -1,0 +1,71 @@
+.driver-stat{
+
+    margin-top:18px;
+
+}
+
+.driver-stat-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+}
+
+.driver-stat-header span{
+
+    opacity:.75;
+
+}
+
+.driver-stat-header strong{
+
+    font-size:16px;
+
+}
+
+.driver-stat-bar{
+
+    height:8px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.driver-stat-fill{
+
+    height:100%;
+
+    width:0;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            var(--team-color),
+
+            color-mix(
+                in srgb,
+                var(--team-color) 55%,
+                white
+            )
+
+        );
+
+    transition:
+        width .6s ease;
+}
