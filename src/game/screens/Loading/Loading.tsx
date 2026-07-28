@@ -1,11 +1,15 @@
 import "./Loading.css";
 import { useEffect } from "react";
-
+import { tracks } from "../../data/tracks";
 import { Screen, useGame } from "../../state/GameContext";
 
 export function Loading() {
 
   const { state, setState } = useGame();
+
+  const track = tracks.find(
+      t => t.id === state.selectedTrack
+  );
 
   useEffect(() => {
 
@@ -37,11 +41,12 @@ export function Loading() {
 
         </span>
 
-        <h1>
+        
 
-          {state.selectedTrack?.toUpperCase()} GRAND PRIX
+        <h1>{track?.grandPrix} GRAND PRIX</h1>
+        <p>{track?.country}</p>
 
-        </h1>
+        
 
         <div className="loading-summary">
 
