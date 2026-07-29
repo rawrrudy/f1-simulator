@@ -24,8 +24,8 @@ export class CarPass {
       ctx.translate(position.x, position.y);
       ctx.rotate(angle);
 
-      const width = 20;
-      const height = 40;
+      const width = 26;
+      const height = 52;
 
       // ===== PLAYER HIGHLIGHT =====
       if (car.isPlayer) {

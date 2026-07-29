@@ -2,10 +2,12 @@ import { useEffect } from "react";
 
 import { GameEngine } from "../engine/core/GameEngine";
 import { engineStore } from "../engine/core/EngineStore";
+import { World } from "../engine/core/World";
 import { useGame } from "../game/state/GameContext";
 
 export function useGameEngine(
-  canvasRef: React.RefObject<HTMLCanvasElement | null>
+  canvasRef: React.RefObject<HTMLCanvasElement | null>,
+  onRaceFinished?: (world: World) => void
 ) {
   const { state } = useGame();
 
@@ -15,7 +17,8 @@ export function useGameEngine(
     const engine = new GameEngine(
       canvasRef.current,
       state.selectedTrack ?? "bahrain",
-      state.selectedDriver ?? ""
+      state.selectedDriver ?? "",
+      onRaceFinished
     );
 
     engineStore.engine = engine;
@@ -25,5 +28,10 @@ export function useGameEngine(
     return () => {
       engineStore.engine = null;
     };
-  }, [canvasRef, state.selectedTrack, state.selectedDriver]);
+  }, [
+    canvasRef,
+    state.selectedTrack,
+    state.selectedDriver,
+    onRaceFinished,
+  ]);
 }

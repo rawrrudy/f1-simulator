@@ -5,10 +5,10 @@ import { HUD } from "./hud/HUD";
 export function GameCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const engineRef = useGameEngine(canvasRef);
+  useGameEngine(canvasRef);
 
   return (
-    <div 
+    <div
       style={{
         position: "relative",
         width: "100vw",

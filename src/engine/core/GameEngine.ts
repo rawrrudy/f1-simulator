@@ -12,10 +12,13 @@ export class GameEngine {
 
   readonly world: World;
 
+  private hasFinished = false;
+
   constructor(
     canvas: HTMLCanvasElement,
     trackId: string,
-    selectedDriver: string
+    selectedDriver: string,
+    private readonly onRaceFinished?: (world: World) => void
   ) {
     this.world = new World(
       trackId,
@@ -55,6 +58,14 @@ export class GameEngine {
 
   private update(deltaTime: number) {
     this.world.update(deltaTime);
+
+    if (
+      this.world.raceDirector.isFinished() &&
+      !this.hasFinished
+    ) {
+      this.hasFinished = true;
+      this.onRaceFinished?.(this.world);
+    }
   }
 
   private render() {
