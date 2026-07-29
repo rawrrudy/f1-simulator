@@ -10,6 +10,8 @@ export class GameEngine {
 
   private renderer: CanvasRenderer;
 
+  private readonly onRaceFinished?: (world: World) => void
+
   readonly world: World;
 
   private hasFinished = false;
@@ -18,8 +20,10 @@ export class GameEngine {
     canvas: HTMLCanvasElement,
     trackId: string,
     selectedDriver: string,
-    private readonly onRaceFinished?: (world: World) => void
+    onRaceFinished?: (world: World) => void
   ) {
+    this.onRaceFinished = onRaceFinished;
+
     this.world = new World(
       trackId,
       selectedDriver
