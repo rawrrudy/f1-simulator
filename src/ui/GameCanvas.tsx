@@ -1,11 +1,34 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { useGameEngine } from "../hooks/useGameEngine";
 import { HUD } from "./hud/HUD";
+import { engineStore } from "../engine/core/EngineStore";
+import { World } from "../engine/core/World";
+import { ResultsScreen } from "./results/ResultsScreen";
 
 export function GameCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const [resultsWorld, setResultsWorld] =
+    useState<World | null>(null);
+
   useGameEngine(canvasRef);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const world = engineStore.engine?.world;
+
+      if (
+        world &&
+        world.raceDirector.isFinished()
+      ) {
+        setResultsWorld(world);
+        clearInterval(interval);
+      }
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
@@ -24,6 +47,10 @@ export function GameCanvas() {
       />
 
       <HUD />
+
+      {resultsWorld && (
+        <ResultsScreen world={resultsWorld} />
+      )}
     </div>
   );
 }
