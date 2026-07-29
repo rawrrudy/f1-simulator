@@ -14,9 +14,13 @@ export class GameEngine {
 
   constructor(
     canvas: HTMLCanvasElement,
-    trackId: string
+    trackId: string,
+    selectedDriver: string
   ) {
-    this.world = new World(trackId);
+    this.world = new World(
+      trackId,
+      selectedDriver
+    );
 
     this.renderer = new CanvasRenderer(
       canvas,

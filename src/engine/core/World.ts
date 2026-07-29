@@ -30,7 +30,10 @@ export class World {
 
   leaderboard: Car[] = [];
 
-  constructor(trackId: string) {
+  constructor(
+    trackId: string,
+    selectedDriver: string
+  ) {
     this.track = TrackLoader.load(trackId);
     
     const START_DISTANCE = 0;
@@ -39,6 +42,9 @@ export class World {
 
     for (let i = 0; i < drivers.length; i++) {
       const car = new Car(drivers[i]);
+
+      car.isPlayer =
+        car.driver.name === selectedDriver;
 
       const row = Math.floor(i / 2);
       const isLeft = i % 2 === 0;

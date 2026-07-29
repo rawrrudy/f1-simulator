@@ -57,6 +57,8 @@ export class Car extends Entity {
 
   attackTimer = 0;
 
+  isPlayer = false;
+
   constructor(driver: Driver) {
     super();
 

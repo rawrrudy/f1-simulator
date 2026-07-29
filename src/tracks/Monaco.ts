@@ -1,6 +1,7 @@
+import { monacoLayout } from "./monacoLayout";
 import type { TrackData } from "./TrackData";
 
 export const Monaco: TrackData = {
     name: "Monaco",
-    points: []
+    points: monacoLayout
 };
