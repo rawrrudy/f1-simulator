@@ -17,7 +17,7 @@ I created this simulator because of my fascination and obsession of F1 race engi
 ## Images
 
 <p align="center">
-  <img src="images/home.png" width="450">
+  <img src="images/home.png" width="600">
   <br>
   <em>Home Screen</em>
 </p>
