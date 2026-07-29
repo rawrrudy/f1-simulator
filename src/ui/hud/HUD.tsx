@@ -4,6 +4,7 @@ import { RaceControl } from "./RaceControl";
 import { TopBar } from "./TopBar";
 import { TelemetryPanel } from "./TelemetryPanel";
 import { StartLights } from "./StartLights";
+import { StrategyPanel } from "./StrategyPanel";
 
 export function HUD() {
   return (
@@ -13,6 +14,7 @@ export function HUD() {
       <TimingTower />
       <TelemetryPanel />
       <RaceControl />
+      <StrategyPanel />
     </div>
   );
 }

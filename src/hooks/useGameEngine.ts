@@ -25,5 +25,5 @@ export function useGameEngine(
     return () => {
       engineStore.engine = null;
     };
-  }, [canvasRef, state.selectedTrack]);
+  }, [canvasRef, state.selectedTrack, state.selectedDriver]);
 }

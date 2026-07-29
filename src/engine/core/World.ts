@@ -30,6 +30,10 @@ export class World {
 
   leaderboard: Car[] = [];
 
+  get playerCar(): Car | undefined {
+    return this.cars.find((car) => car.isPlayer)
+  }
+
   constructor(
     trackId: string,
     selectedDriver: string
