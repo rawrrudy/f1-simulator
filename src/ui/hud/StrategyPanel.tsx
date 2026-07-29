@@ -1,21 +1,21 @@
 import { engineStore } from "../../engine/core/EngineStore";
 
 export function StrategyPanel() {
-  function setFuelMode(mode: number) {
-    const player = engineStore.engine?.world.playerCar;
+  const player = engineStore.engine?.world.playerCar;
 
+  function setFuelMode(mode: number) {
     if (!player) return;
 
     player.fuelMode = mode;
   }
 
   return (
-    <div 
+    <div
       style={{
         position: "absolute",
-        left: 20,
+        right: 20,
         bottom: 20,
-        background: "#111",
+        background: "#151515",
         color: "white",
         padding: 16,
         borderRadius: 8,
@@ -23,11 +23,23 @@ export function StrategyPanel() {
     >
       <h3>Fuel</h3>
 
-      <button onClick={() => setFuelMode(0)}>Save</button>
-
-      <button onClick={() => setFuelMode(1)}>Balanced</button>
-
-      <button onClick={() => setFuelMode(2)}>Push</button>
+      {[0, 1, 2].map((mode) => (
+        <button
+          key={mode}
+          onClick={() => setFuelMode(mode)}
+          style={{
+            margin: 4,
+            fontWeight:
+              player?.fuelMode === mode ? "bold" : "normal",
+          }}
+        >
+          {mode === 0
+            ? "SAVE"
+            : mode === 1
+            ? "BALANCED"
+            : "PUSH"}
+        </button>
+      ))}
     </div>
   );
 }
