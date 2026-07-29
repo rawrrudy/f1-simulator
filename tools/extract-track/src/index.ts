@@ -1,10 +1,27 @@
-import svg from "../assets/bahrain.svg?raw";
+import bahrain from "../assets/bahrain.svg?raw";
+import monaco from "../assets/monaco.svg?raw";
+import silverstone from "../assets/silverstone.svg?raw";
+
 import { TrackEditor } from "./editor/TrackEditor";
 
-const app = document.getElementById("app")!;
+const tracks = {
+    bahrain,
+    monaco,
+    silverstone,
+} as const;
+
+const params = new URLSearchParams(window.location.search);
+
+const selectedTrack =
+    (params.get("track") as keyof typeof tracks) ??
+    "bahrain";
+
+const svg = tracks[selectedTrack] ?? tracks.bahrain;
+
+const app = document.getElementById("app");
 
 if (!app) {
-    throw new Error("App element not found.")
+    throw new Error("App element not found.");
 }
 
 app.innerHTML = svg;
@@ -18,10 +35,6 @@ if (!svgElement) {
 new TrackEditor(svgElement);
 
 const paths = svgElement.querySelectorAll("path");
-
-console.clear();
-
-console.log(`Found ${paths.length} path(s)\n`);
 
 const pathInfo = Array.from(paths).map((path, index) => ({
     index,
@@ -39,4 +52,3 @@ console.table(
         Length: Number(length.toFixed(2)),
     }))
 );
-
