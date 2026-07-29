@@ -30,9 +30,9 @@ export class World {
 
   leaderboard: Car[] = [];
 
-  constructor() {
-    this.track = TrackLoader.loadBahrain();
-
+  constructor(trackId: string) {
+    this.track = TrackLoader.load(trackId);
+    
     const START_DISTANCE = 0;
     const ROW_SPACING = 45;
     const SIDE_OFFSET = 12;

@@ -10,9 +10,14 @@ export class GameEngine {
 
   private renderer: CanvasRenderer;
 
-  readonly world = new World();
+  readonly world: World;
 
-  constructor(canvas: HTMLCanvasElement) {
+  constructor(
+    canvas: HTMLCanvasElement,
+    trackId: string
+  ) {
+    this.world = new World(trackId);
+
     this.renderer = new CanvasRenderer(
       canvas,
       this.world

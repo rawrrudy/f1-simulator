@@ -1,6 +1,6 @@
 import type { TrackData } from "./TrackData";
 
-export const Monza: TrackData = {
-    name: "Monza",
+export const Silverstone: TrackData = {
+    name: "Silverstone",
     points: []
 };
