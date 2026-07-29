@@ -14,6 +14,14 @@ I created this simulator because of my fascination and obsession of F1 race engi
 
 ---
 
+## Images
+
+<p align="center">
+  <img src="images/home.png">
+  <br>
+  <em>Home Screen</em>
+</p>
+
 ## Features
 
 - Multiple circuits
