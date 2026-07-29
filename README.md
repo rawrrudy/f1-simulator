@@ -17,9 +17,27 @@ I created this simulator because of my fascination and obsession of F1 race engi
 ## Images
 
 <p align="center">
-  <img src="images/home.png">
+  <img src="images/home.png" width="450">
   <br>
   <em>Home Screen</em>
+</p>
+
+<p align="center">
+  <img src="images/select.png" width="450">
+  <br>
+  <em>Driver Selection</em>
+</p>
+
+<p align="center">
+  <img src="images/map.png" width="450">
+  <br>
+  <em>Circuit selection</em>
+</p>
+
+<p align="center">
+  <img src="images/game.png" width="450">
+  <br>
+  <em>Strategy Simulator</em>
 </p>
 
 ## Features
