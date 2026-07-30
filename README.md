@@ -98,7 +98,7 @@ npm run build
 
 (p.s - im so sorry i totally forgot we had to declare this totally my fault)
 
-In this simulator, I used AI in some parts (frontend) because I am not that familiar with CSS and wanted to improve my UI and frontend home page. Other than that, everything is written/coded by me :)
+In this simulator, I used AI in some parts (frontend) because I am not that familiar with CSS and wanted to improve my UI and frontend home page (the team selection page I used AI to organize the cards in proper order). Other than that, everything is written/coded by me :)
 
 ## Acknowledgements
 
