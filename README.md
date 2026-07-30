@@ -8,6 +8,14 @@ I created and built this project for [Horizons | Hack Club](https://horizons.hac
 
 ---
 
+## AI Usage
+
+(p.s - im so sorry i totally forgot we had to declare this totally my fault)
+
+In this simulator, I used AI in some parts (frontend) because I am not that familiar with CSS and wanted to improve my UI and frontend home page (the team selection page I used AI to organize the cards in proper order). Other than that, everything is written/coded by me :)
+
+---
+
 ## Overview
 
 So, basically the idea behind this Strategy Simulator is to give players a hands on experience of what happens in an F1 Grand Prix behind the actual race and the cars. I absolutely love the efforts that F1 team engineers put to make their vehicle the best one on the grid. The fuel quantity, tire softness and many such stuff wins races.
@@ -93,12 +101,6 @@ npm run build
 - CSS
 
 ---
-
-## AI Usage
-
-(p.s - im so sorry i totally forgot we had to declare this totally my fault)
-
-In this simulator, I used AI in some parts (frontend) because I am not that familiar with CSS and wanted to improve my UI and frontend home page (the team selection page I used AI to organize the cards in proper order). Other than that, everything is written/coded by me :)
 
 ## Acknowledgements
 
