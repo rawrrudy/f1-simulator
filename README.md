@@ -1,5 +1,7 @@
 # F1 Strategy Simulator
 
+> Note: At this time, the simulator is in its 1st version. After project approval, I plan on adding more maps, weather options and enhancing the gameplay!!!
+
 A browser based Formula 1 strategy simulator where you take the role of a race engineer, making important decisions on tires, fuel, DRS, and pit stops across iconic circuits!
 
 I created and built this project for [Horizons | Hack Club](https://horizons.hackclub.com/app)
@@ -8,9 +10,9 @@ I created and built this project for [Horizons | Hack Club](https://horizons.hac
 
 ## Overview
 
-This simulator puts you in the role of an actual F1 race engineer. Instead of driving the car, your objective is to make strategic decisions throughout the race, including tire management, fuel usage, pit stop timing and overtaking others.
+So, basically the idea behind this Strategy Simulator is to give players a hands on experience of what happens in an F1 Grand Prix behind the actual race and the cars. I absolutely love the efforts that F1 team engineers put to make their vehicle the best one on the grid. The fuel quantity, tire softness and many such stuff wins races.
 
-I created this simulator because of my fascination and obsession of F1 race engineers and the cool jobs they do every grand prix!
+In this simulator, you play as an F1 engineer and your overall job is to control the car. Meaning, you will have to choose the tire softness, fuel mode, overtake scenarios and take these small risks to win the Grand Prix. As of now, the simulator has several weather options as well which also make it difficult to control.
 
 ---
 
@@ -91,6 +93,12 @@ npm run build
 - CSS
 
 ---
+
+## AI Usage
+
+(p.s - im so sorry i totally forgot we had to declare this totally my fault)
+
+In this simulator, I used AI in some parts (frontend) because I am not that familiar with CSS and wanted to improve my UI and frontend home page. Other than that, everything is written/coded by me :)
 
 ## Acknowledgements
 
