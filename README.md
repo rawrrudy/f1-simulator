@@ -4,7 +4,7 @@
 
 A browser based Formula 1 strategy simulator where you take the role of a race engineer, making important decisions on tires, fuel, DRS, and pit stops across iconic circuits!
 
-I created and built this project for [Horizons | Hack Club](https://horizons.hackclub.com/app)
+I created and built this project for [Beest](https://beest.hackclub.com/home)
 
 ---
 
@@ -104,5 +104,5 @@ npm run build
 
 ## Acknowledgements
 
-I would like to thank the entire team at [Horizons | Hack Club](https://horizons.hackclub.com/app) for conducting such a wonderful hackathon!
+I would like to thank the entire team at [Beest](https://beest.hackclub.com/home) for conducting such a wonderful experience!
 I would also like to thank Formula 1!
