@@ -3,7 +3,7 @@
 > Note: At this time, the simulator is in its 1st version. After project approval, I plan on adding more maps, weather options and enhancing the gameplay!!!
 
 <p align="center">
-  <img src="images/simlogo.png" width="900">
+  <img src="images/simlogo.png" width="450">
 </p>
 
 A browser based Formula 1 strategy simulator where you take the role of a race engineer, making important decisions on tires, fuel, DRS, and pit stops across iconic circuits!
