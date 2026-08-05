@@ -3,7 +3,7 @@
     position:relative;
 
     width:100vw;
-    height:100vh;
+    min-height:100vh;
 
     overflow: auto;
 
@@ -12,8 +12,10 @@
     background:
         radial-gradient(
             circle at top,
-            #2a180a,
-            #0b0d12 70%
+            #4a2b0d 0%,
+            #2b1a0d 30%,
+            #17120f 65%,
+            #0b0d12 100%
         );
 
     color:white;
