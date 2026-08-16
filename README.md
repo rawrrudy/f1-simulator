@@ -69,7 +69,7 @@ In this simulator, you play as an F1 engineer and your overall job is to control
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/f1-simulator.git
+git clone https://github.com/rawrrudy/f1-simulator.git
 ```
 
 Install dependencies
