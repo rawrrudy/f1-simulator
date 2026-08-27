@@ -2,11 +2,19 @@
 
 > Note: At this time, the simulator is in its 1st version. After project approval, I plan on adding more maps, weather options and enhancing the gameplay!!!
 
+<p align="center">
+  <img src="images/simlogo.png" width="450">
+</p>
+
 A browser based Formula 1 strategy simulator where you take the role of a race engineer, making important decisions on tires, fuel, DRS, and pit stops across iconic circuits!
 
-I created and built this project for [Beest](https://beest.hackclub.com/home)
+I created and built this project for [Horizons](https://horizons.hackclub.com/app)
 
 ---
+
+## AI Use
+
+In this simulator, I used AI in some parts (frontend) because I am not that familiar with CSS and wanted to improve my frontend home page (the team selection page I used AI to organize the cards)
 
 ## Overview
 
@@ -61,7 +69,7 @@ In this simulator, you play as an F1 engineer and your overall job is to control
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/f1-simulator.git
+git clone https://github.com/rawrrudy/f1-simulator.git
 ```
 
 Install dependencies
@@ -96,5 +104,5 @@ npm run build
 
 ## Acknowledgements
 
-I would like to thank the entire team at [Beest](https://beest.hackclub.com/home) for conducting such a wonderful experience!
+I would like to thank the entire team at [Horizons](https://horizons.hackclub.com/app) for conducting such a wonderful experience!
 I would also like to thank Formula 1!
