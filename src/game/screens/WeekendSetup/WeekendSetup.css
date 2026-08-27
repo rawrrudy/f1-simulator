@@ -1,167 +1,134 @@
-.weekend-setup{
+.weekend-setup {
+    position: relative;
 
-    position:relative;
+    width: 100vw;
+    min-height: 100vh;
 
-    width:100vw;
-    min-height:100vh;
+    overflow-y: auto;
 
-    overflow: auto;
+    background: #0b0d12;
 
-    transition: background .35s ease;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #4a2b0d 0%,
-            #2b1a0d 30%,
-            #17120f 65%,
-            #0b0d12 100%
-        );
-
-    color:white;
-
+    color: #ffffff;
 }
 
-.weekend-overlay{
+.weekend-overlay {
+    position: absolute;
+    inset: 0;
 
-    position:absolute;
-    inset:0;
+    background: #0b0d12;
 
-    background:
-
-        linear-gradient(
-
-            rgba(0,0,0,.25),
-
-            rgba(0,0,0,.65)
-
-        );
-
+    pointer-events: none;
 }
 
-.weekend-content{
+.weekend-content {
+    position: relative;
 
-    position:relative;
+    z-index: 2;
 
-    z-index:2;
+    max-width: 1450px;
 
-    max-width:1450px;
+    margin: auto;
 
-    margin:auto;
-
-    padding:60px;
-
+    padding: 60px;
 }
 
-.weekend-header{
-
-    margin-bottom:55px;
-
+.weekend-header {
+    margin-bottom: 55px;
 }
 
-.weekend-subtitle{
+.weekend-subtitle {
+    color: #ff7b00;
 
-    color:#ff7b00;
+    font-weight: 700;
 
-    font-weight:700;
+    letter-spacing: 0.25em;
 
-    letter-spacing:.25em;
-
-    font-size:13px;
-
+    font-size: 13px;
 }
 
-.weekend-header h1{
+.weekend-header h1 {
+    margin-top: 8px;
 
-    margin-top:8px;
+    font-size: 58px;
 
-    font-size:58px;
+    font-weight: 800;
 
-    font-weight:800;
+    letter-spacing: 0.05em;
 
-    letter-spacing:.05em;
-
+    color: #ffffff;
 }
 
-.weekend-header p{
+.weekend-header p {
+    margin-top: 12px;
 
-    margin-top:12px;
+    opacity: 0.7;
 
-    opacity:.65;
+    font-size: 18px;
 
-    font-size:18px;
-
+    color: #b8bdc7;
 }
 
-.track-section{
-
-    margin-bottom:55px;
-
+.track-section {
+    margin-bottom: 55px;
 }
 
 .track-section h2,
-.weather-section h2{
+.weather-section h2 {
+    margin-bottom: 22px;
 
-    margin-bottom:22px;
+    font-size: 18px;
 
-    font-size:18px;
+    letter-spacing: 0.12em;
 
-    letter-spacing:.12em;
-
+    color: #ffffff;
 }
 
-.track-grid{
+.track-grid {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: repeat(3, 1fr);
 
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:30px;
-
+    gap: 30px;
 }
 
-.weather-grid{
+.weather-grid {
+    display: grid;
 
-    display:grid;
+    grid-template-columns: repeat(3, 220px);
 
-    grid-template-columns:
-        repeat(3,220px);
+    gap: 24px;
 
-    gap:24px;
-
-    margin-top:20px;
-
+    margin-top: 20px;
 }
 
-.weekend-footer{
+.weekend-footer {
+    display: flex;
 
-    display:flex;
+    justify-content: flex-end;
 
-    justify-content:flex-end;
-
-    margin-top:60px;
-
+    margin-top: 60px;
 }
 
-.start-race-button{
+.start-race-button {
+    padding: 18px 42px;
 
-    padding:18px 42px;
+    border: none;
 
-    border:none;
+    border-radius: 14px;
 
-    border-radius:14px;
+    background: #ff7b00;
 
-    background:#ff7b00;
+    color: #ffffff;
 
-    color:white;
+    font-size: 16px;
 
-    font-size:16px;
+    font-weight: 700;
 
-    font-weight:700;
+    letter-spacing: 0.08em;
 
-    letter-spacing:.08em;
+    cursor: pointer;
+}
 
-    cursor:pointer;
-
+.start-race-button:hover {
+    background: #ff8c1a;
 }

@@ -16,16 +16,7 @@ export function WeekendSetup() {
     "Sunny"
   );
   return (
-    <div
-      className="weekend-setup"
-      style={{
-        background: `radial-gradient(
-          circle at top,
-          ${selectedTrack.theme},
-          #0b0d12 70%
-        )`,
-      }}
-    >
+    <div className="weekend-setup">
 
       <div className="weekend-overlay"/>
 
