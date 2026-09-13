@@ -74,7 +74,7 @@ export function StrategyPanel() {
     <div
       style={{
         position: "absolute",
-        left: 120,
+        right: 220,
         bottom: 20,
         width: 320,
         background: "#171A20",
