@@ -4,16 +4,27 @@ import { useWorld } from "./useWorld";
 export function TelemetryPanel() {
   const world = useWorld();
 
-  if (!world || world.leaderboard.length === 0) {
+  if (!world) {
     return null;
   }
 
-  const car = world.leaderboard[0];
+  const car = world.playerCar;
+
+  if (!car) {
+    return null;
+  }
 
   return (
     <div className="telemetry">
       <div className="telemetry-driver">
         {car.driver.name}
+      </div>
+
+      <div className="telemetry-row">
+        <span>Position</span>
+        <span>
+          P{world.leaderboard.indexOf(car) + 1}
+        </span>
       </div>
 
       <div className="telemetry-row">
@@ -54,6 +65,17 @@ export function TelemetryPanel() {
         <span>DRS</span>
         <span>
           {car.drsOpen ? "OPEN" : "OFF"}
+        </span>
+      </div>
+
+      <div className="telemetry-row">
+        <span>Fuel Mode</span>
+        <span>
+          {car.fuelMode === 0
+            ? "SAVE"
+            : car.fuelMode === 1
+            ? "BALANCED"
+            : "PUSH"}
         </span>
       </div>
     </div>
