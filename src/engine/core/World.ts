@@ -15,12 +15,14 @@ import { DRSMechanism } from "../mechanism/DRSMechanism";
 import { OvertakeMechanism } from "../mechanism/OvertakeMechanism";
 import { RaceDirector } from "../race/RaceDirector";
 import { RaceState } from "../race/RaceState";
+import { tracks } from "../../game/data/tracks";
 
 export class World {
   readonly width = 6000;
   readonly height = 4000;
 
   readonly track: Track;
+  readonly trackId: string;
 
   readonly cars: Car[] = [];
 
@@ -38,6 +40,7 @@ export class World {
     trackId: string,
     selectedDriver: string
   ) {
+    this.trackId = trackId
     this.track = TrackLoader.load(trackId);
     
     const START_DISTANCE = 0;
@@ -130,11 +133,18 @@ export class World {
     // Check for race finish
     const leader = this.leaderboard[0];
 
+    const trackInfo = tracks.find(
+      (track) => track.id === this.trackId
+    );
+    
+    const raceLaps = trackInfo?.laps ?? 57;
+
     if (
       leader &&
-      leader.currentLap >= 57 &&
+      leader.currentLap >= raceLaps &&
       !this.raceDirector.isFinished()
-    ) {
+    )
+    {
       this.raceDirector.setState(RaceState.Finished);
 
       this.raceControl.show(

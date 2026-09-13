@@ -1,76 +1,67 @@
 .top-bar {
-
     position: absolute;
 
     top: 20px;
-
     left: 50%;
 
     transform: translateX(-50%);
 
     display: flex;
-
     align-items: center;
 
-    gap: 18px;
+    background: #171A20;
+    border: 1px solid #303640;
+    border-radius: 10px;
 
-    background: rgba(20,20,20,.92);
+    overflow: hidden;
 
-    border-radius: 8px;
-
-    overflow-y: auto;
+    color: #FFFFFF;
 
     font-size: 13px;
-
     font-weight: 700;
 
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 8px 24px rgba(0,0,0,.35);
-
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .gp-name {
-
     background: #E10600;
 
     padding: 10px 16px;
 
-    letter-spacing: .06em;
+    color: #FFFFFF;
 
+    letter-spacing: 0.06em;
 }
 
 .lap-counter {
+    padding: 10px 16px;
 
-    padding: 0 4px;
+    color: #FFFFFF;
 
     white-space: nowrap;
-
 }
 
 .flag-status {
-
     padding: 10px 16px;
 
+    color: #FFFFFF;
 }
 
 .flag-status.green {
-
     background: #00A651;
-
 }
 
 .flag-status.yellow {
     background: #FFD500;
-    color: #111;
+    color: #111111;
 }
 
 .flag-status.red {
     background: #E10600;
-    color: white;
+    color: #FFFFFF;
 }
 
 .flag-status.checker {
-    background: #ffffff;
-    color: #111;
+    background: #FFFFFF;
+    color: #111111;
 }

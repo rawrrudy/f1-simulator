@@ -1,11 +1,14 @@
-import { useState } from "react";
-import { engineStore } from "../../engine/core/EngineStore";
+import { useWorld } from "./useWorld";
 import { CarState } from "../../engine/entities/CarState";
 
 export function StrategyPanel() {
-  const player = engineStore.engine?.world.playerCar;
+  const world = useWorld();
 
-  const [, forceUpdate] = useState(0);
+  if (!world) {
+    return null;
+  }
+
+  const player = world.playerCar;
 
   if (!player) {
     return null;
@@ -15,7 +18,6 @@ export function StrategyPanel() {
     if (!player) return;
 
     player.fuelMode = mode;
-    forceUpdate((value) => value + 1);
   }
 
   function requestPit() {
@@ -26,7 +28,6 @@ export function StrategyPanel() {
     }
 
     player.wantsToPit = true;
-    forceUpdate((value) => value + 1);
   }
 
   const fuelModes = [
@@ -131,7 +132,9 @@ export function StrategyPanel() {
                   ? "#FF7B00"
                   : "#1D2128",
                 color: "#FFFFFF",
-                cursor: isPitting ? "not-allowed" : "pointer",
+                cursor: isPitting
+                  ? "not-allowed"
+                  : "pointer",
                 fontFamily: "inherit",
                 fontWeight: 700,
                 fontSize: 12,
@@ -192,7 +195,9 @@ export function StrategyPanel() {
 
         <strong
           style={{
-            color: isPitting ? "#FF7B00" : "#FFFFFF",
+            color: isPitting
+              ? "#FF7B00"
+              : "#FFFFFF",
           }}
         >
           {pitStatus}
@@ -214,14 +219,18 @@ export function StrategyPanel() {
             ? "#1D2128"
             : "#FF7B00",
           color: "#FFFFFF",
-          cursor: isPitting ? "not-allowed" : "pointer",
+          cursor: isPitting
+            ? "not-allowed"
+            : "pointer",
           fontFamily: "inherit",
           fontWeight: 800,
           fontSize: 13,
           letterSpacing: "0.08em",
         }}
       >
-        {isPitting ? pitStatus : "BOX THIS LAP"}
+        {isPitting
+          ? pitStatus
+          : "BOX THIS LAP"}
       </button>
     </div>
   );

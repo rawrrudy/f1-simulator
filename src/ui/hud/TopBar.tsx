@@ -1,6 +1,7 @@
 import "./styles/top-bar.css";
 import { useWorld } from "./useWorld";
 import { RaceState } from "../../engine/race/RaceState";
+import { tracks } from "../../game/data/tracks";
 
 export function TopBar() {
   const world = useWorld();
@@ -10,6 +11,10 @@ export function TopBar() {
   }
 
   const leader = world.leaderboard[0];
+
+  const track = tracks.find(
+    (item) => item.id === world.trackId
+  );
 
   const state = world.raceDirector.state;
 
@@ -52,11 +57,11 @@ export function TopBar() {
   return (
     <div className="top-bar">
       <div className="gp-name">
-        BAHRAIN GRAND PRIX
+        {track?.grandPrix?.toUpperCase() ?? "GRAND PRIX"}
       </div>
 
       <div className="lap-counter">
-        LAP {leader?.currentLap ?? 1} / 57
+        LAP {leader?.currentLap ?? 1} / {track?.laps ?? 57}
       </div>
 
       <div className={className}>
